@@ -4,10 +4,10 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 
-import HomePicture from '../asset/images/homePicture.jpg';
-import Subscribe from '../asset/images/subscribe.svg';
-import Awareness from '../asset/images/awareness.svg';
-import Poverty from '../asset/images/poverty.svg';
+import HomePicture from '../../asset/images/homePicture.jpg';
+import Subscribe from '../../asset/images/subscribe.svg';
+import Awareness from '../../asset/images/awareness.svg';
+import Poverty from '../../asset/images/poverty.svg';
 import './home.styles.scss';
 
 function Home() {
@@ -35,7 +35,7 @@ function Home() {
                 </span>
               </Box>
               <Box my={2}>
-                <Button variant="contained" style={{ backgroundColor : "#f50057"}}>Support Us</Button>
+                <Button variant="contained" style={{ backgroundColor : "#f50057"}} component="a" href="/support">Support Us</Button>
               </Box>
               
             </Box>
