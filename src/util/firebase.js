@@ -2,25 +2,34 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider  } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
+import { FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, FIREBASE_PROJECT_ID, FIREBASE_STORAGE_BUCKET, FIREBASE_MESSAGING_SENDER_ID, FIREBASE_APP_ID, FIREBASE_MEASUREMENT_ID} from './config.js';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: `${process.env.FIREBASE_API_KEY }`,
-  authDomain: `${process.env.FIREBASE_AUTH_DOMAIN}`,
-  projectId: "ignite-83122",
-  storageBucket: "ignite-83122.appspot.com",
-  messagingSenderId: "987348192113",
-  appId: "1:987348192113:web:56de76a966683ac5fe84d0",
-  measurementId: "G-Q4VGRZW1ZS"
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
+  appId: FIREBASE_APP_ID,
+  measurementId: FIREBASE_MEASUREMENT_ID
 };
+
+const googleProvider = new GoogleAuthProvider();
+const FacebookProvider = new FacebookAuthProvider();
+const TwitterProvider = new TwitterAuthProvider ();
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore();
+const auth = getAuth();
 
-export { app, analytics, db } 
+
+export { app, analytics, db, auth, googleProvider, FacebookProvider, TwitterProvider } 
 

@@ -1,22 +1,42 @@
-import './App.css';
-import { Switch, Route } from 'react-router-dom';
+// import './App.css';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Header from './component/header.component';
+import Header from './component/header/header.component';
 import Home from './page/home/home.page';
-import Payment from './page/payment/payment.page';
+import Subscribe from './page/subscribe/subscribe.page';
 import Support from './page/support/support.page';
+import Footer from './component/footer/footer.component';
+import About from './page/about/about.page';
+import Register from './page/register/register.page';
+import Login from './page/login/login.page';
+import Payment from './page/payment/payment.page';
+import Donate from './page/donate/donate.page';
+import Tracker from './page/tracker/tracker.page';
+
+import AuthRoute from './util/AuthRoute';
+import { AuthProvider } from './context/auth';
 
 function App() {
 
   return (
-    <div className="App">
-      <Header />
-      <Switch>
-        <Route exact path="/payment" component={Payment} /> 
-        <Route exact path="/support" component={Support} /> 
-        <Route path="/" component={Home} /> 
-      </Switch>
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} /> 
+          <Route exact path="/about" component={About} />
+          <Route exact path="/subscribe" component={Subscribe} /> 
+          <Route exact path="/support" component={Support} /> 
+          <AuthRoute exact path="/register" component={Register} />
+          <AuthRoute exact path="/login" component={Login} />
+          <AuthRoute exact path="/payment" component={Payment} userLoggedIn={true} />
+          <Route exact path="/donate" component={Donate} />
+          <Route exact path="/tracker" component={Tracker} />
+          <Redirect to="/" />
+        </Switch>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 }
 

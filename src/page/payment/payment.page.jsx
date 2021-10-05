@@ -1,26 +1,27 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import GooglePayButton from '@google-pay/button-react';
+// import Box from '@mui/material/Box';
+// import Grid from '@mui/material/Grid';
+
+import { PAYMENT_REQUEST, onPaymentDataChanged, onPaymentAuthorized } from './paymentDetails';
 
 function Payment() {
 
   return (
-    <Box>
-      <Grid container spacing={2}>
-        <Grid item xs={8}>
-          xs=8
-        </Grid>
-        <Grid item xs={4}>
-          xs=4
-        </Grid>
-        <Grid item xs={4}>
-          xs=4
-        </Grid>
-        <Grid item xs={8}>
-          xs=8
-        </Grid>
-      </Grid>
-    </Box>
+    <div>
+      <GooglePayButton
+        environment="TEST"
+        buttonColor="black"
+        buttonType="subscribe"
+        buttonSizeMode="230"
+        paymentRequest={ PAYMENT_REQUEST }
+        onLoadPaymentData={paymentRequest => {
+            console.log("load payment data", paymentRequest);
+          }}
+          onPaymentDataChanged={onPaymentDataChanged}
+          onPaymentAuthorized={onPaymentAuthorized}
+      />
+    </div>
   )
 }
 

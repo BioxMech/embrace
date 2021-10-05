@@ -44,24 +44,58 @@
         // animation-iteration-count: infinite;
         // animation-direction: alternate; /* Make the animation run back and forth */
       }
+
+      @keyframes highlight {
+        0% {
+          width: 0;
+          opacity: 0;
+        }
+      
+        50% {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+
+    .support-button {
+      border: none;
+      outline: none;
+      position: relative;
+
+      &:before, &:after {
+        border: 0 solid transparent;
+        transition: all 0.3s;
+        content: '';
+        height: 0;
+        position: absolute;
+        width: 24px;
+        width: 100%;
+        animation-name: highlight;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &:before {
+        border-top: 3px solid #a10000;
+        right: 0;
+        top: -5px;
+      }
+
+      &:after {
+        border-bottom: 3px solid #a10000;
+        bottom: -5px;
+        left: 0;
+      }
+
+      &:hover:before, &:hover:after {
+        width: 100%;
+        animation-name: highlight;
+        animation-duration: 3s;
+      }
     }
   }
-
-
-  
-}
-
-@keyframes highlight {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-
-  50% {
-    width: 100%;
-    opacity: 1;
-  }
-
 }
 
 .home-logo {
