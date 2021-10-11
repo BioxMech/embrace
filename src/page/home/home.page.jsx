@@ -7,7 +7,7 @@ import HomeCarousel from '../../component/home/homeCarousel.component';
 import './home.styles.scss';
 
 function Home() {
-  
+
   return (
     // <Container maxWidth="lg" >
       <Box mb={2} style={{ textAlign: "center" }}>

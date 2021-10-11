@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import { AuthContext } from '../../context/auth';
+import TrackPeriod from '../../component/tracker/trackerPeriod.component';
 
 function Tracker() {
 
@@ -29,9 +30,13 @@ function Tracker() {
               Simply key your info into our period cycle tracker to see when you might be feeling PMS, and when you can expect your period.  
               Now you can stay prepared - fuss free! 
             </Typography>
-          </Grid>
+          </Grid> 
+        </Grid>
+      </Container>
+      <Container maxWidth="lg">
+        <Grid container>
           <Grid item xs={12}>
-            
+            <TrackPeriod />
           </Grid>
         </Grid>
       </Container>

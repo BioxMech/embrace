@@ -20,20 +20,20 @@
   }
 
   @keyframes highlight {
-        0% {
-          width: 0;
-          opacity: 0;
-        }
-      
-        50% {
-          width: 100%;
-          opacity: 1;
-        }
-        100% {
-          width: 100%;
-          opacity: 0;
-        }
-      }
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+  
+    50% {
+      width: 100%;
+      opacity: 1;
+    }
+    100% {
+      width: 100%;
+      opacity: 0;
+    }
+  }
 
   .sign-up-title {
     font-weight: 700 !important;

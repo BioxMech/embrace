@@ -105,10 +105,10 @@ function Subscribe() {
                           buttonSizeMode="230"
                           paymentRequest={ PAYMENT_REQUEST }
                           onLoadPaymentData={paymentRequest => {
-                              console.log("load payment data", paymentRequest);
-                            }}
-                            onPaymentDataChanged={onPaymentDataChanged}
-                            onPaymentAuthorized={onPaymentAuthorized}
+                            console.log("load payment data", paymentRequest);
+                          }}
+                          onPaymentDataChanged={onPaymentDataChanged}
+                          onPaymentAuthorized={onPaymentAuthorized}
                         />
                       :
                         <Button fullWidth variant={ buttonVariant } href={`/login`}>

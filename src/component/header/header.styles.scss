@@ -36,12 +36,24 @@ $header-color: #f48fb1;
 
     &:hover:after {
       transform: scaleX(1);
-      transform-origin: bottom left;
+      transform-origin: bottom left; 
     }
   }
 
   .current {
     color: white;
+
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 2px;
+    //   bottom: 0;
+    //   left: 0;
+    //   background-color: #0087ca;
+    //   transform: scaleX(1);
+    //   transform-origin: bottom left; 
+    // }
   }
 }
 
@@ -58,5 +70,6 @@ $header-color: #f48fb1;
   .current {
     background-color: $header-color !important;
     color: white;
+    text-transform: uppercase;
   }
 }
