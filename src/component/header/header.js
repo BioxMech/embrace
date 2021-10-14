@@ -26,5 +26,10 @@ export const headersData = [
   {
     label: "blog",
     href: "/blog"
+  },
+  {
+    label: "profile",
+    href: "/profile"
   }
+
 ];
