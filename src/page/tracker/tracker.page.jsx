@@ -18,18 +18,20 @@ function Tracker() {
   )
 
   const notLoggedInTracker = (
-    <Box my={2} py={8} >
+    <Box py={6} >
       <Container maxWidth="md" >
         <Grid container spacing={5}>
           <Grid item xs={12}>
-            <Typography variant="h3" align="center" gutterBottom style={{ color: "#9867C5" }}>
-              Tracking Your Cycle
-            </Typography>
-            <Typography variant="body2" align="center" color="text.primary" >
-              Thanks to modern technology, you can now know exactly when to throw extra pads in your schoolbag or handbag. 
-              Simply key your info into our period cycle tracker to see when you might be feeling PMS, and when you can expect your period.  
-              Now you can stay prepared - fuss free! 
-            </Typography>
+            <Box my={3}>
+              <Typography variant="h3" align="center" gutterBottom style={{ color: "#9867C5" }}>
+                Tracking Your Cycle
+              </Typography>
+              <Typography variant="body2" align="center" color="text.primary" >
+                Thanks to modern technology, you can now know exactly when to throw extra pads in your schoolbag or handbag. 
+                Simply key your info into our period cycle tracker to see when you might be feeling PMS, and when you can expect your period.  
+                Now you can stay prepared - fuss free! 
+              </Typography>
+            </Box>
           </Grid> 
         </Grid>
       </Container>
