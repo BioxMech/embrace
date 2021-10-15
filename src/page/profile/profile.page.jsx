@@ -1,86 +1,78 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Avatar from '@mui/material/Avatar';
-
+import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
-// import GlobalStyles from '@mui/material/GlobalStyles';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 
 import Woman from '../../asset/images/woman.png';
-
-import { AuthContext } from '../../context/auth';
-
-
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
+// import { AuthContext } from '../../context/auth';
+import './profile.styles.scss';
 
 function Profile() {
+
     // const { user } = useContext(AuthContext);
 
     return (
-        <Box my={2} py={6}>
-            {/* <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} /> */}
-            <Container maxWidth="sm">
-                <Grid container spacing={4}>
-                    <Grid item xs={4} sm={4}>
-                        <Avatar
-                        alt = 'src' 
-                        src = {Woman}
-                        imgProps = {{ sizes: 5000}}    
-                        >
-                        </Avatar>
-                        <Typography gutterBottom variant="h4">
-                                Priyanka
-                            </Typography>
-                        <Card>
-                         <CardContent>
-                            <Typography gutterBottom variant="h6">
-                                My Subscriptions
-                            </Typography>
-                        </CardContent>
-                            <CardActions>
-                            <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081" }}>Log Out</Button>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={6} sm={8}>
-                    {/* <Grid item xs={6} md={8}> */}
-                        <Card>
-                         <CardHeader
-                            title = "Basic Information" //HOW TO BOLD THIS?
-                            titleTypographyProps={{ align: 'left' }}
-                            >
-                         </CardHeader>
-                            <CardContent>
-                                <Typography gutterBottom variant="subtitle2">
-                                    Name
-                                </Typography>
-                                <Typography gutterBottom variant="subtitle2">
-                                    Email
-                                </Typography>
-                                <Typography gutterBottom variant="subtitle2">
-                                    Address
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Box>
-    )
+      <Box my={2} py={6}>
+        <Container maxWidth="sm">
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={4} style={{ textAlign: 'center' }}>
+              <Avatar alt="src" src={Woman} sx={{ width: 100, height: 100, marginLeft: 'auto', marginRight: 'auto' }} />
+              <Typography gutterBottom variant="h4">
+                Priyanka
+              </Typography>
+              <Button className="profile-special-buttons" component="a" href="/my-subscriptions" color="inherit">
+                My Subscriptions
+              </Button>
+            </Grid>
+            <Grid item xs={12} md={8}>
+              <Box my={2}>
+                <Typography variant="h6">
+                    Basic Information
+                </Typography>
+              </Box>
+                <Card elevation={5}>
+                  <CardContent>
+                    <Stack direction="row" my={2} spacing={5}>
+                      <Typography gutterBottom variant="body1">
+                        Name
+                      </Typography>
+                      <Typography variant="body1">
+                        Priyanka
+                      </Typography>
+                    </Stack>
+                    <Divider />
+                    <Stack direction="row" my={2} spacing={5}>
+                      <Typography gutterBottom variant="body1">
+                        Email
+                      </Typography>
+                      <Typography variant="body1">
+                        priyanka@inmail.com
+                      </Typography>
+                    </Stack>
+                    <Divider />
+                    <Stack direction="row" my={2} spacing={5}>
+                      <Typography gutterBottom variant="body1">
+                        Address
+                      </Typography>
+                      <Typography variant="body1">
+                        468, Gurudwara Bldg, Dr B A Rd, Dadar (east)
+                      </Typography>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    );
 
 }
 export default Profile;
-
-
- 
-
-
-
-
-
-

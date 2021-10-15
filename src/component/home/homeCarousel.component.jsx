@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Hidden from '@mui/material/Hidden';
+import Typography from '@mui/material/Typography';
+import Typewriter from 'typewriter-effect';
 
 import { carouselList } from './carousel';
 
@@ -39,8 +41,30 @@ function HomeCarousel() {
           </Carousel>
         </div>
           <Box py={2} className="home-picture-box">
-            <Box my={2}>
-              IGNITE
+            <Box my={2} >
+              <Typography variant="h5" sx={{ display: 'flex', justifyContent: 'center'}}>
+                IGNITE THE &nbsp;
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter.typeString("<strong style='color: red'>FIRE</strong>")
+                      // .callFunction(() => {
+                      //   console.log('String typed out!');
+                      // })
+                      .pauseFor(2500)
+                      .deleteChars(4)
+                      .typeString("<strong style='color: blue'>PASSION</strong>")
+                      .pauseFor(2500)
+                      // .callFunction(() => {
+                      //   console.log('All strings were deleted');
+                      // })
+                      .start();
+                  }}
+                  options={{
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
+              </Typography>
             </Box>
             <Box my={2}>
               <span className="home-picture-description" >

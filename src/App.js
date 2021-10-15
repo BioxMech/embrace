@@ -33,7 +33,7 @@ function App() {
           <AuthRoute exact path="/payment" component={Payment} userLoggedIn={true} />
           <Route exact path="/donate" component={Donate} />
           <Route exact path="/tracker" component={Tracker} />
-          <Route exact path="/profile" component={Profile} />
+          <AuthRoute exact path="/profile" component={Profile} userLoggedIn={true} />
           <Redirect to="/" />
         </Switch>
         <Footer />

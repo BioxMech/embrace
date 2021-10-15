@@ -18,7 +18,7 @@ function Tracker() {
   )
 
   const notLoggedInTracker = (
-    <Box my={2} py={8}>
+    <Box my={2} py={8} >
       <Container maxWidth="md" >
         <Grid container spacing={5}>
           <Grid item xs={12}>

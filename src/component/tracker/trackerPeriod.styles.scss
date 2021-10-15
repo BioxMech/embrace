@@ -1,0 +1,45 @@
+
+.date-day {
+  font-size: large;
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.SingleDatePickerInput {
+  background-color: #E8DEFF;
+
+  .DateInput {
+    width: 40px;
+    // display: block;
+    font-size: x-large;
+    color: black;
+  
+    .DateInput_input {
+      background-color: #E8DEFF;
+      font-weight: 800;
+      font-size: x-large;
+      // display: block;
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
+
+.track-button {
+  background-color: #FA4C86 !important;
+}
+
+.days-count {
+  font-weight: 800;
+  font-size: x-large;
+}
+
+.DayPicker_transitionContainer {
+  background-color: white !important;
+}
+
+.CalendarDay__highlighted_calendar {
+  background-color: rgba(255, 0, 0, 0.25) !important;
+  color: black;
+}

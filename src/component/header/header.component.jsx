@@ -12,15 +12,20 @@ import ListItem from '@mui/material/ListItem';
 // import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Hidden from '@mui/material/Hidden';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 import "./header.styles.scss";
+import ProfilePicture from '../../asset/images/woman.png';
 import Awareness from '../../asset/images/awareness.svg';
 import { headersData } from './header';
 import { signOut } from "firebase/auth";
 import { auth } from '../../util/firebase';
 import { AuthContext } from '../../context/auth';
 
-function Header(props) {
+function Header() {
 
   const { user, logout } = useContext(AuthContext);
   const pathname = window.location.pathname;
@@ -82,9 +87,16 @@ function Header(props) {
       // An error happened.
     });
     logout(e);
-    props.history.push('/');
-    alert("work")
   }
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -122,7 +134,7 @@ function Header(props) {
           {/* =============== WEBSITE VIEW =============== */}
           <Box sx={{ display: { 'xs' : 'none', 'md': 'block'} }}>
             {
-              headersData.map(({ label, href }) => {
+              headersData.map(({ label, href, target }) => {
                 return (
                   <Button
                     className={"header-button " + ( activeItem === href.substring(1,href.length) ? "current" : (activeItem === label ? "current" : "") )}
@@ -132,7 +144,8 @@ function Header(props) {
                       href: href,
                       component: "a",
                     }}
-                    onClick={handleItemClick}
+                    onClick={ !target ? handleItemClick : ''}
+                    target={ target ? "_blank" : ""}
                   >
                     { label }
                   </Button>
@@ -145,26 +158,48 @@ function Header(props) {
 
           {/* =============== LOGIN / REGISTER =============== */}
           <Box>
-          { !user ?
-            <>
-              <Hidden mdDown={path === "login" ? true : false}>
-                <Button className={"header-button " + ( activeItem === "login" ? "current" : "" ) } color="inherit" component="a" href="/login">
-                  Login
-                </Button>
-              </Hidden>
-              <Hidden mdDown={(path === "register" || pathname === "/") ? true : false}>
-                <Button className={"header-button " + ( activeItem === "register" ? "current" : "" ) } color="inherit" component="a" href="/register">
-                  Register
-                </Button>
-              </Hidden>
-            </>
-            :
-            <>
-              <Button className="signOut" color="inherit" onClick={ handleSignOut } href={`/`}>Sign out</Button>
-            </>
-          }
-            
-            
+            { !user ?
+              <>
+                <Hidden mdDown={path === "login" ? true : false}>
+                  <Button className={"header-button " + ( activeItem === "login" ? "current" : "" ) } color="inherit" component="a" href="/login">
+                    Login
+                  </Button>
+                </Hidden>
+                <Hidden mdDown={(path === "register" || pathname === "/") ? true : false}>
+                  <Button className={"header-button " + ( activeItem === "register" ? "current" : "" ) } color="inherit" component="a" href="/register">
+                    Register
+                  </Button>
+                </Hidden>
+              </>
+              :
+              <>
+                {/* <Button className="signOut" color="inherit" onClick={ handleSignOut } href={`/`}>Sign out</Button> */}
+                <Stack direction="row" spacing={2}>
+                  <Button 
+                    color="inherit" 
+                    aria-controls="basic-menu"
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined} 
+                    onClick={handleClick}
+                  >
+                    Profile <Avatar alt="P" src={ ProfilePicture } />
+                  </Button>
+                </Stack>
+                
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                  }}
+                >
+                  <MenuItem  component="a" onClick={handleClose} href={`/profile`}>Profile</MenuItem>
+                  <MenuItem component="a" onClick={handleSignOut} href={`/`}>Logout</MenuItem>
+                </Menu>
+              </>
+            }
           </Box>
         </Toolbar>
       </AppBar>

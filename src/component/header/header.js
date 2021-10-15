@@ -25,11 +25,8 @@ export const headersData = [
   },
   {
     label: "blog",
-    href: "/blog"
+    href: "/blog",
+    target: true
   },
-  {
-    label: "profile",
-    href: "/profile"
-  }
 
 ];
