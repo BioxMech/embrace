@@ -1,10 +1,11 @@
 export const subscribeList = [
   {
     "tierNumber": "1",
-    "name": "Monthly",
-    "price": 7,
+    "name": "MONTHLY",
+    "price": 90,
     "description": [
-      "5 sets of Pads & Tampons",
+      "3 sets of Day Pads (23cm)",
+      "2 sets of Night Pads (35cm)",
       "Free Delivery"
     ],
     buttonText: 'Get Started',
@@ -13,24 +14,26 @@ export const subscribeList = [
   },
   {
     "tierNumber": "3",
-    "name": "Annually",
+    "name": "ANNUALLY",
     "subheader": "Best Value",
-    "price": 70,
+    "price": 80,
     "description": [
-      "60 + 5 sets of Pads & Tampons",
+      "36 sets of Day Pads (23cm)",
+      "24 sets of Night Pads (35cm)",
+      "1 FREE MONTH SUPPLY",
       "Free Delivery",
-      "Discount Coupons",
-      "1 Free Month"
+      "Discount Coupons"
     ],
     buttonText: 'Subscribe Now',
     buttonVariant: 'contained',
   },
   {
     "tierNumber": "2",
-    "name": "Semi-annually",
-    "price": 40,
+    "name": "SEMI-ANNUAL",
+    "price": 100,
     "description": [
-      "30 sets of Pads & Tampons",
+      "18 sets of Day Pads (23cm)",
+      "12 sets of Night Pads (35cm)",
       "Free Delivery",
       "Discount Coupons"
     ],

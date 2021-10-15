@@ -13,6 +13,7 @@ import Payment from './page/payment/payment.page';
 import Donate from './page/donate/donate.page';
 import Tracker from './page/tracker/tracker.page';
 import Profile from './page/profile/profile.page';
+import Mysubscription from './page/mysubscription/mysubscription.page';
 
 import AuthRoute from './util/AuthRoute';
 import { AuthProvider } from './context/auth';
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/donate" component={Donate} />
           <Route exact path="/tracker" component={Tracker} />
           <AuthRoute exact path="/profile" component={Profile} userLoggedIn={true} />
+          <AuthRoute exact path="/mysubscription" component={Mysubscription} userLoggedIn={true}/>
           <Redirect to="/" />
         </Switch>
         <Footer />
