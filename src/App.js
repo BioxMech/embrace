@@ -1,5 +1,5 @@
 // import './App.css';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from './component/header/header.component';
 import Home from './page/home/home.page';
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <div className="App">
+      <Router className="App">
         <Header />
         <Switch>
           <Route exact path="/" component={Home} /> 
@@ -39,7 +39,7 @@ function App() {
           <Redirect to="/" />
         </Switch>
         <Footer />
-      </div>
+      </Router>
     </AuthProvider>
   );
 }

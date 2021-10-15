@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,10 +20,12 @@ import MenuItem from '@mui/material/MenuItem';
 import "./header.styles.scss";
 import ProfilePicture from '../../asset/images/woman.png';
 import Awareness from '../../asset/images/awareness.svg';
+import Logo from '../../asset/images/logo.svg';
 import { headersData } from './header';
 import { signOut } from "firebase/auth";
-import { auth } from '../../util/firebase';
+import { db, auth } from '../../util/firebase';
 import { AuthContext } from '../../context/auth';
+import { getDoc, doc } from "firebase/firestore";
 
 function Header() {
 
@@ -60,7 +62,7 @@ function Header() {
       onKeyDown={toggleDrawer(anchor, false)}
       className="drawer"
     >
-      <Toolbar className="drawer-title">{"<logo>"} Ignite</Toolbar>
+      <Toolbar className="drawer-title"><img src={Logo} alt="Logo" style={{ width: 35, height: 35 }} /> Embrace</Toolbar>
       <Divider />
       <List>
         {headersData.map(({ label, href }) => {
@@ -98,6 +100,26 @@ function Header() {
     setAnchorEl(null);
   };
 
+  const [userData, setUserData] = useState(null);
+  // console.log(user)
+  async function checkDB() {
+    if (!user) { return null; }
+    const docRef = doc(db, "users", localStorage.getItem("token"));
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      setUserData(docSnap.data())
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }
+
+  useEffect(() => {
+    checkDB();
+  }, [])
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className="appBar">
@@ -126,8 +148,8 @@ function Header() {
 
           {/* =============== TITLE =============== */}
           <Box >          
-            <Button className="title" component="a" href="/" variant="h6" startIcon={<IconButton className="title"><img style={{ width: "24px" }} src={Awareness} alt="..." /></IconButton>}>
-              Ignite
+            <Button className="title" component="a" href="/" variant="h6" startIcon={<IconButton className="title"><img style={{ width: "50px" }} src={Logo} alt="..." /></IconButton>}>
+              Embrace
             </Button>
           </Box>
           
@@ -182,7 +204,28 @@ function Header() {
                     aria-expanded={open ? 'true' : undefined} 
                     onClick={handleClick}
                   >
-                    Profile <Avatar alt="P" src={ ProfilePicture } />
+                    {/* Profile  */} 
+                    { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : null : null }
+                    <Box ml={2}>
+                      <Avatar alt="P" style={{ width: 35, height: 35 }} 
+                        src={ 
+                          user ? 
+                            userData ? 
+                              (userData.photoURL !== null && userData.photoURL !== undefined) ? 
+                                userData.photoURL 
+                                : 
+                                (user.photoURL !== null && user.photoURL !== undefined) ? 
+                                  user.photoURL 
+                                  : 
+                                  ProfilePicture 
+                            : 
+                            (user.photoURL !== null && user.photoURL !== undefined) ? 
+                              user.photoURL 
+                              : 
+                              ProfilePicture 
+                          : 
+                          ProfilePicture } />
+                    </Box> 
                   </Button>
                 </Stack>
                 

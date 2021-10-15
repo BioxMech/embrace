@@ -14,7 +14,6 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import './trackerPeriod.styles.scss';
 import TrackResults from './trackResults.component';
 
-
 function TrackPeriod() {
 
   const [date, setDate] = useState(moment()); // current time
@@ -125,7 +124,7 @@ function TrackPeriod() {
         <Grid item xs={12} md={4}>
           <Box my={3}>
             <Typography variant="h6">
-              3. How long is your usual menstrual cycle?
+              3. Duration of menstrual cycle?
             </Typography>
           </Box>
           <Box mt={"auto"} sx={{ display: "flex", justifyContent: "center" }}>
@@ -144,8 +143,10 @@ function TrackPeriod() {
               <Button variant="contained" className="track-button" onClick={() => setDoReveal(true)}>Track Now</Button>
             </Box>
             :
-            <Box my={3} component="a" href="#Results">
-              Look below
+            <Box my={3}>
+              <Button component="a" href="#Results" color="secondary" variant="contained">
+                Look below
+              </Button>
             </Box>
           }
         </Grid>
@@ -160,7 +161,9 @@ function TrackPeriod() {
         <Box my={3}>
           <Grid container>
             <Grid item xs={12}>
-              Previous 3 Months
+              <Typography variant="h5">
+                Next 3 months
+              </Typography>
             </Grid>
             <Grid item xs={12} id="Results">
               {/* <MemorizeResults startPeriodDate={date} daysLast={count} cycleCount={cycleCount} render={render}  /> */}

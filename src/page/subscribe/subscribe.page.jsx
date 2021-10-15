@@ -95,9 +95,10 @@ function Subscribe() {
                       ))}
                     </ul>
                   </CardContent>
-                  <CardActions>
+                  <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
                     {
                       user ?
+                        
                         <GooglePayButton
                           environment="TEST"
                           buttonColor="black"
@@ -110,6 +111,7 @@ function Subscribe() {
                           onPaymentDataChanged={onPaymentDataChanged}
                           onPaymentAuthorized={onPaymentAuthorized}
                         />
+                        
                       :
                         <Button fullWidth variant={ buttonVariant } href={`/login`}>
                           { buttonText }

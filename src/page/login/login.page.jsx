@@ -17,7 +17,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from "firebase/auth";
 import { auth, googleProvider, FacebookProvider, TwitterProvider, db } from '../../util/firebase';
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, getDoc, doc } from "firebase/firestore";
 import { AuthContext } from '../../context/auth';
 
 import './login.styles.scss';
@@ -65,17 +65,27 @@ function Login() {
     //   password: data.get('password'),
     // });
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // Signed in 
-        const user = userCredential.user;
-        const token = "V$wrVbDBz,7m:y73<D={Fz!d3CVe@S";
-        context.login(user, token);
-        setDoc(doc(db, "users", user.uid), {
-          displayName: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL,
-          createdAt: new Date()
-        });
+        const docRef = doc(db, "users", email);
+        const docSnap = await getDoc(docRef);
+        var name = '';
+        if (docSnap.exists()) {
+          console.log("Document data:", docSnap.data());
+          name = docSnap.data().displayName;
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+        const user = { ...userCredential.user, displayName: name };
+        // const token = "V$wrVbDBz,7m:y73<D={Fz!d3CVe@S";
+        context.login(user, email);
+        // setDoc(doc(db, "users", user.uid), {
+        //   displayName: user.displayName,
+        //   email: user.email,
+        //   photoURL: user.photoURL,
+        //   createdAt: new Date()
+        // });
         // ...
       })
       .catch((error) => {
@@ -115,13 +125,13 @@ function Login() {
     signInWithPopup(auth, googleProvider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      // const credential = GoogleAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      // console.log(user)
-      context.login(user, token);
-      setDoc(doc(db, "users", user.uid), {
+      console.log(user)
+      context.login(user, user.displayName);
+      setDoc(doc(db, "users", user.displayName), {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
@@ -148,10 +158,10 @@ function Login() {
       const user = result.user;
 
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      const credential = FacebookAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      context.login(user, token);
-      setDoc(doc(db, "users", user.uid), {
+      // const credential = FacebookAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
+      context.login(user, user.displayName);
+      setDoc(doc(db, "users", user.displayName), {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
@@ -177,14 +187,14 @@ function Login() {
     .then((result) => {
       // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
       // You can use these server side with your app's credentials to access the Twitter API.
-      const credential = TwitterAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      // const credential = TwitterAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
       // const secret = credential.secret;
 
       // The signed-in user info.
       const user = result.user;
-      context.login(user, token);
-      setDoc(doc(db, "users", user.uid), {
+      context.login(user, user.displayName);
+      setDoc(doc(db, "users", user.displayName), {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
