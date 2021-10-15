@@ -30,15 +30,15 @@ function Register() {
 
     if (password.length >= 6 && password === confirmPassword) {
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => { 
           // Signed in 
-          const user = userCredential.user;
-          const token = 'V$wrVbDBz,7m:y73<D={Fz!d3CVe@S';
-          context.login(user, token);
-          setDoc(doc(db, "users", user.uid), {
-            displayName: name,
-            email: email,
-            photoURL: null,
+          const user = { ...userCredential.user, displayName: name };
+          // const token = 'V$wrVbDBz,7m:y73<D={Fz!d3CVe@S';
+          context.login(user, email);
+          await setDoc(doc(db, "users", email), {
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
             createdAt: new Date()
           });
           // ...
@@ -120,11 +120,18 @@ function Register() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Container maxWidth="md" style={{ textAlign: 'center' }}>
+        <Box my={3}>
+          <Typography variant="h6">
+            Register for free to access a seamless period tracking experience.
+          </Typography>
+        </Box>
+      </Container>
       <Container component="main" maxWidth="xs" sx={{ backgroundColor: 'rgb(255, 245, 248)'}}>
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            // marginTop: 8,
             marginBottom: 8,
             display: 'flex',
             flexDirection: 'column',
@@ -154,12 +161,12 @@ function Register() {
                   name="name"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="name"
+                  label="Name"
                   autoFocus
                   onChange={handleOnChange}
                   error={ errors.name ? true : false }
-                  helperText={ errors.name ? `${errors.name}` : "" }
+                  helperText={ errors.name ? `${errors.name}` : "Your first name" }
                 />
               </Grid>
               <Grid item xs={12}>
@@ -172,7 +179,7 @@ function Register() {
                   autoComplete="email"
                   onChange={handleOnChange}
                   error={ errors.email ? true : false }
-                  helperText={ errors.email ? `${errors.email}` : "" }
+                  helperText={ errors.email ? `${errors.email}` : "Working email address" }
                 />
               </Grid>
               <Grid item xs={12}>
@@ -186,7 +193,7 @@ function Register() {
                   autoComplete="new-password"
                   onChange={handleOnChange}
                   error={ errors.password ? true : false }
-                  helperText={ errors.password ? `${errors.password}` : "" }
+                  helperText={ errors.password ? `${errors.password}` : "Minimum 6 characters" }
                 />
               </Grid>
               <Grid item xs={12}>
@@ -200,13 +207,13 @@ function Register() {
                   autoComplete="confirm-new-password"
                   onChange={handleOnChange}
                   error={ errors.confirmPassword ? true : false }
-                  helperText={ errors.confirmPassword ? `${errors.confirmPassword}` : "" }
+                  helperText={ errors.confirmPassword ? `${errors.confirmPassword}` : "To confirm your password" }
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I register on my own free will"
+                  label="I agree to the Terms & Condition that we will utilize the data as necessary"
                 />
               </Grid>
             </Grid>
