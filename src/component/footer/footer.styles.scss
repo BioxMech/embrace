@@ -1,5 +1,5 @@
 .footer-box {
-  background-color: rgb(255, 211, 211);
+  background-color: #fbd2d7;
 
   .footer-title {
     text-transform: uppercase;
@@ -18,7 +18,7 @@
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: #0087ca;
+      background-color: #8441C2;
       transform-origin: bottom right;
       transition: transform 0.25s ease-out;
     }
@@ -31,5 +31,9 @@
 
   .footer-copyright {
     font-weight: bold;
+  }
+  
+  .current {
+    color: #8441C2;
   }
 }

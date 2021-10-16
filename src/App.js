@@ -29,11 +29,11 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/subscribe" component={Subscribe} /> 
           <Route exact path="/support" component={Support} /> 
+          <Route exact path="/donate" component={Donate} />
+          <Route exact path="/tracker" component={Tracker} />
           <AuthRoute exact path="/register" component={Register} />
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/payment" component={Payment} userLoggedIn={true} />
-          <Route exact path="/donate" component={Donate} />
-          <Route exact path="/tracker" component={Tracker} />
           <AuthRoute exact path="/profile" component={Profile} userLoggedIn={true} />
           <AuthRoute exact path="/mysubscription" component={Mysubscription} userLoggedIn={true}/>
           <Redirect to="/" />

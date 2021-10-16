@@ -219,8 +219,10 @@ function Login() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
-            marginBottom: 8,
+            marginTop: 6,
+            marginBottom: 6,
+            paddingTop: 2,
+            paddingBottom: 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

@@ -25,19 +25,27 @@ function Subscribe() {
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <Container maxWidth="lg">
         <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 6, pb: 6 }}>
-          <Typography
-            variant="h3"
-            align="center"
-            color="text.primary"
-            gutterBottom
-          >
-            Subscription
-          </Typography>
-          <Typography variant="h6" align="center" color="text.secondary" component="p">
-            Quickly build an effective pricing table for your potential customers with
-            this layout. It&apos;s built with default MUI components with little
-            customization.
-          </Typography>
+          <Box>
+            <Typography
+              variant="h3"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              Subscription
+            </Typography>
+          </Box>
+          <Box mb={3}>
+            <Typography variant="h6" align="center" color="text.secondary">
+              Our EMBRACE sanitary pads subscription packages allow women across Telangana gain access to pads affordably and seamlessly. 
+              Women can order pads on a monthly, semi-annually, or annually basis, delivered right to their doorstep. 
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6" align="center" color="text.secondary">
+              Simply order your subscription directly on our website wherever you have internet access.
+            </Typography>
+          </Box>
         </Container>
         <Container maxWidth="md" component="main" sx={{ pb: 8 }}>
           <Grid container spacing={5} alignItems="flex-end">
@@ -47,7 +55,7 @@ function Subscribe() {
                 item
                 key={ name }
                 xs={12}
-                sm={ name === 'Semi-annually' ? 12 : 6 }
+                sm={ name === 'SEMI-ANNUALLY' ? 12 : 6 }
                 md={4}
               >
                 <Card>
@@ -55,7 +63,7 @@ function Subscribe() {
                     title={ name }
                     subheader={ subheader }
                     titleTypographyProps={{ align: 'center' }}
-                    action={ name === 'Annually' ? <StarIcon /> : null }
+                    action={ name === 'ANNUALLY' ? <StarIcon /> : null }
                     subheaderTypographyProps={{
                       align: 'center',
                     }}

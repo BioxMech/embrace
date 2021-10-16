@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -7,8 +7,16 @@ import Link from '@mui/material/Link';
 
 import './footer.styles.scss';
 import { footerList } from './footer';
+import { AuthContext } from '../../context/auth';
 
 function Footer() {
+
+  const { user, logout } = useContext(AuthContext);
+  const pathname = window.location.pathname;
+
+  // based on whatever page you are in
+  const path = pathname === '/' ? 'home' : pathname.substr(1); // substr(1) because you only care what is after '/'
+  const [activeItem, setActiveItem] = useState(path);
 
   return (
     <Box mt={5} pt={2} className="footer-box">
@@ -22,8 +30,8 @@ function Footer() {
                     { name }
                   </Typography>
                   { descriptionList.map(({ label, href }) => (
-                    <Box my={1} key={label}>
-                      <Typography variant="body1" component="a" color="inherit" href={href} className="footer-description">
+                    <Box my={1} key={label} className={ ( activeItem === href.substring(1,href.length) ? "current" : (activeItem === label ? "current" : "") )}>
+                      <Typography variant="body1" component="a" color="inherit" href={href} className={"footer-description"}>
                         { label }
                       </Typography>
                     </Box>

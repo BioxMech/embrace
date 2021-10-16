@@ -25,7 +25,7 @@ export const footerList = [
       },
       {
         "label": "Volunteer",
-        "href": "/volunteer"
+        "href": "/support"
       }
     ]
   },

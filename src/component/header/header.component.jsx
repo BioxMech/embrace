@@ -19,8 +19,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 import "./header.styles.scss";
 import ProfilePicture from '../../asset/images/woman.png';
-import Awareness from '../../asset/images/awareness.svg';
-import Logo from '../../asset/images/logo.svg';
+import Logo from '../../asset/images/logo.png';
 import { headersData } from './header';
 import { signOut } from "firebase/auth";
 import { db, auth } from '../../util/firebase';
@@ -62,20 +61,31 @@ function Header() {
       onKeyDown={toggleDrawer(anchor, false)}
       className="drawer"
     >
-      <Toolbar className="drawer-title"><img src={Logo} alt="Logo" style={{ width: 35, height: 35 }} /> Embrace</Toolbar>
+      <Toolbar className="drawer-title" component="a" href="/" ><img src={Logo} alt="Logo" style={{ width: 35, height: 35 }} /> Embrace</Toolbar>
       <Divider />
       <List>
-        {headersData.map(({ label, href }) => {
-          return (
-           // {/* <ListItem className={"drawer-header"} sx={{ textTransform:'capitalize', backgroundColor: (( activeItem === href.substring(1,href.length) ? "pink" : (activeItem === label ? "pink" : ""))) }} button key={label} component="a" href={href} > */}
-            <ListItem className={"drawer-header " + ( activeItem === href.substring(1,href.length) ? "current" : (activeItem === label ? "current" : "") )} button key={label} component="a" href={href} >
-              {/* <ListItemIcon>
-                {2 % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
-              <ListItemText primary={label} />
+        {
+          headersData.map(({ label, href }) => {
+            return (
+              // {/* <ListItem className={"drawer-header"} sx={{ textTransform:'capitalize', backgroundColor: (( activeItem === href.substring(1,href.length) ? "pink" : (activeItem === label ? "pink" : ""))) }} button key={label} component="a" href={href} > */}
+              <ListItem className={"drawer-header " + ( activeItem === href.substring(1,href.length) ? "current" : (activeItem === label ? "current" : "") )} button key={label} component="a" href={href} >
+                {/* <ListItemIcon>
+                  {2 % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon> */}
+                <ListItemText primary={label} />
+              </ListItem>
+            )
+          })
+        }
+
+        {
+          user ?
+            <ListItem className={"drawer-header " + ( activeItem === "profile" ? "current" : (activeItem === "profile" ? "current" : "") )} button key={"profile"} component="a" href={"/profile"} >
+              <ListItemText primary={"profile"} />
             </ListItem>
-          )
-        })}
+          :
+            null
+        }
       </List>
     </Box>
   );
@@ -108,11 +118,11 @@ function Header() {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
+      // console.log("Document data:", docSnap.data());
       setUserData(docSnap.data())
     } else {
       // doc.data() will be undefined in this case
-      console.log("No such document!");
+      console.log("No such user!");
     }
   }
 
@@ -148,7 +158,7 @@ function Header() {
 
           {/* =============== TITLE =============== */}
           <Box >          
-            <Button className="title" component="a" href="/" variant="h6" startIcon={<IconButton className="title"><img style={{ width: "50px" }} src={Logo} alt="..." /></IconButton>}>
+            <Button className="title" component="a" href="/" variant="h6" startIcon={<IconButton className="title"><img style={{ width: "40px" }} src={Logo} alt="..." /></IconButton>}>
               Embrace
             </Button>
           </Box>
@@ -195,7 +205,6 @@ function Header() {
               </>
               :
               <>
-                {/* <Button className="signOut" color="inherit" onClick={ handleSignOut } href={`/`}>Sign out</Button> */}
                 <Stack direction="row" spacing={2}>
                   <Button 
                     color="inherit" 
@@ -204,9 +213,9 @@ function Header() {
                     aria-expanded={open ? 'true' : undefined} 
                     onClick={handleClick}
                   >
-                    {/* Profile  */} 
+                    {/* ========================= Profile ========================= */} 
                     { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : null : null }
-                    <Box ml={2}>
+                    <Box ml={1}>
                       <Avatar alt="P" style={{ width: 35, height: 35 }} 
                         src={ 
                           user ? 
@@ -224,7 +233,9 @@ function Header() {
                               : 
                               ProfilePicture 
                           : 
-                          ProfilePicture } />
+                          ProfilePicture 
+                        } 
+                      />
                     </Box> 
                   </Button>
                 </Stack>
@@ -238,7 +249,7 @@ function Header() {
                     'aria-labelledby': 'basic-button',
                   }}
                 >
-                  <MenuItem  component="a" onClick={handleClose} href={`/profile`}>Profile</MenuItem>
+                  <MenuItem component="a" onClick={handleClose} href={`/profile`} >Profile</MenuItem>
                   <MenuItem component="a" onClick={handleSignOut} href={`/`}>Logout</MenuItem>
                 </Menu>
               </>
