@@ -144,7 +144,7 @@ function Header() {
               { list("left") }
             </SwipeableDrawer>
           </Box>
-          {/* =============== DRAWER =============== */} 
+          {/* =============== END OF DRAWER =============== */} 
 
           {/* =============== TITLE =============== */}
           <Box >          
@@ -187,7 +187,7 @@ function Header() {
                     Login
                   </Button>
                 </Hidden>
-                <Hidden mdDown={(path === "register" || pathname === "/") ? true : false}>
+                <Hidden mdDown={path !== "login" ? true : false}>
                   <Button className={"header-button " + ( activeItem === "register" ? "current" : "" ) } color="inherit" component="a" href="/register">
                     Register
                   </Button>
