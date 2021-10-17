@@ -54,6 +54,10 @@ function TrackPeriod() {
     }
   }
 
+  const check = (momentDate) => {
+    return !momentDate.isBetween(moment().subtract(1, "M").subtract(moment().date(), "days"), moment().add(3, "M").add(moment().date(), "days"))
+  }
+
   return (
     <Box >
       <Grid container style={{ backgroundColor: "#E8DEFF", textAlign: "center", padding: "10px" }} >
@@ -87,10 +91,11 @@ function TrackPeriod() {
                   </Grid>
                 }
                 numberOfMonths="1"
-                isOutsideRange={() => false}
+                isOutsideRange={check}
                 readOnly
                 noBorder
                 customInputIcon={<EventNoteIcon />}
+                
               />
             </Grid>
             <Grid item xs={6} style={{ textAlign: "left" }}>

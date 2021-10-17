@@ -86,9 +86,9 @@ function Profile() {
                 {/* Priyanka */}
                 { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : "Loading..." : "Loading..." }
               </Typography>
-              <Button className="profile-special-buttons" component="a" href="/mysubscription" color="inherit">
+              {/* <Button className="profile-special-buttons" component="a" href="/mysubscription" color="inherit">
                 My Subscriptions
-              </Button>
+              </Button> */}
             </Grid>
             <Grid item xs={12} md={8}>
               <Box my={2}>
@@ -149,6 +149,62 @@ function Profile() {
                   </CardContent>
                 </Card>
               </Box>
+
+              <Box my={2}>
+                <Typography variant="h6">
+                My Subscriptions
+                </Typography>
+              </Box>
+              <Box>
+                <Card elevation={5}>
+                  <CardContent>
+                    <Grid container>
+                      <Grid item xs={3}>
+                        {/* <Box pt={2} pb={2} sx={{ display: 'grid', rowGap: 2, gridTemplateColumns: 'repeat(2, 1fr)' }}> */}
+                        <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
+                        Package Type
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                        <Typography variant="body1">                          
+                          {/* { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : "Loading..." : "Loading..." } */}
+                        Monthly
+                        </Typography>
+                      </Grid>
+                      {/* </Box> */}
+                      <Grid item xs={12}><Box my={1}><Divider /></Box></Grid>
+                      {/* <Box pt={2} pb={2} sx={{ display: 'grid', rowGap: 2, gridTemplateColumns: 'repeat(2, 1fr)' }}> */}
+                      <Grid item xs={3}>
+                        <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
+                        Price
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                        <Typography variant="body1">
+                          {/* { user ? userData ? userData.email : user.email !== null ? user.email : "Loading..." : "Loading..." } */}
+                          90 ₹
+                        </Typography>
+                      </Grid>
+                      {/* </Box> */}
+                      <Grid item xs={12}><Box my={1}><Divider /></Box></Grid>
+                      {/* <Box pt={2} pb={2} sx={{ display: 'grid', rowGap: 2, gridTemplateColumns: 'repeat(2, 1fr)' }}> */}
+                      <Grid item xs={3}>
+                        <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
+                        Duration
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                        <Typography variant="body1">
+                        4/12/2021 - 5/1/2022 (1 month)
+                        </Typography>
+                      </Grid>
+                      {/* </Box> */}
+                    </Grid>
+                    {/* <Divider /> */}
+                  </CardContent>
+                </Card>
+              </Box>
+
               <Box pt={2}>
                 <Typography variant="subtitle1" style={{ fontWeight: 500, color: "#FB5858"}}>
                   My Average Cycle Length

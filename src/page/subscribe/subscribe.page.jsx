@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/StarBorder';
 import GlobalStyles from '@mui/material/GlobalStyles';
 
+import PeriodPoverty from '../../asset/images/periodpoverty.jpg';
 import { subscribeList } from './subscribe';
 import { AuthContext } from '../../context/auth';
 import { PAYMENT_REQUEST, onPaymentDataChanged, onPaymentAuthorized } from '../payment/paymentDetails';
@@ -32,20 +33,26 @@ function Subscribe() {
               color="text.primary"
               gutterBottom
             >
-              Subscription
+              Our Subscription Packages
             </Typography>
           </Box>
           <Box mb={3}>
-            <Typography variant="h6" align="center" color="text.secondary">
+            <Typography variant="h6" align="center" color="text.secondary" style={{ fontWeight: 400 }}>
               Our EMBRACE sanitary pads subscription packages allow women across Telangana gain access to pads affordably and seamlessly. 
               Women can order pads on a monthly, semi-annually, or annually basis, delivered right to their doorstep. 
             </Typography>
           </Box>
           <Box>
-            <Typography variant="h6" align="center" color="text.secondary">
+            <Typography variant="h6" align="center" color="text.secondary" style={{ fontWeight: 400 }}>
               Simply order your subscription directly on our website wherever you have internet access.
             </Typography>
           </Box>
+        </Container>
+        <Container maxWidth="md" component="main" sx={{ mb: 8 }}>
+          <Box style={{ textAlign: 'center', width: '100%', height: '100%' }}>
+            <img src={PeriodPoverty} alt="..." style={{ width: "50%", height: "50vh"}}/>
+          </Box>
+        
         </Container>
         <Container maxWidth="md" component="main" sx={{ pb: 8 }}>
           <Grid container spacing={5} alignItems="flex-end">
@@ -87,7 +94,7 @@ function Subscribe() {
                         ₹{ price }
                       </Typography>
                       <Typography variant="h6" color="text.secondary">
-                        /mo
+                        /month
                       </Typography>
                     </Box>
                     <ul>
