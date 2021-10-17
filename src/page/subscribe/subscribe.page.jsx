@@ -48,9 +48,9 @@ function Subscribe() {
             </Typography>
           </Box>
         </Container>
-        <Container maxWidth="md" component="main" sx={{ pb: 8 }}>
-          <Box>
-          <img src={PeriodPoverty} alt="..." style={{ width: "50%", height: "50vh"}}/>
+        <Container maxWidth="md" component="main" sx={{ mb: 8 }}>
+          <Box style={{ textAlign: 'center', width: '100%', height: '100%' }}>
+            <img src={PeriodPoverty} alt="..." style={{ width: "50%", height: "50vh"}}/>
           </Box>
         
         </Container>

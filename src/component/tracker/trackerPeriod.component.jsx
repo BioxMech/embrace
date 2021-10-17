@@ -91,6 +91,8 @@ function TrackPeriod() {
                 readOnly
                 noBorder
                 customInputIcon={<EventNoteIcon />}
+                minDate={moment().subtract(1, "M")}
+                maxDate={moment().add(3, "M")}
               />
             </Grid>
             <Grid item xs={6} style={{ textAlign: "left" }}>

@@ -1,5 +1,9 @@
 import React from 'react';
 import GooglePayButton from '@google-pay/button-react';
+import { 
+  FacebookShareButton, TelegramShareButton, TwitterShareButton, WhatsappShareButton, LineShareButton, EmailShareButton,
+  FacebookIcon, TelegramIcon,  TwitterIcon, WhatsappIcon, LineIcon, EmailIcon
+} from "react-share";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -78,26 +82,39 @@ function Donate() {
             </Box>
           </Grid>
           <Grid item xs={12}>
-          <Box mt={3}>
-            <Typography variant="body2" align="center" color="text.primary" gutterBottom >
+          <Box my={5}>
+            <Typography variant="subtitle1" align="center" color="text.secondary" gutterBottom >
             We are registered under FCRA to receive donations from foreign sources.
             </Typography>
           </Box>
           </Grid>
 
         <Grid item xs={12}>
-            <Grid mt={5} container spacing={2} direction="row"  justify="center"  alignItems="center">
-              <Grid item xs={2}>
-              <Button size="small" fullWidth variant="outlined" style={{ backgroundColor: "#ff4081" }} href="www.facebook.com">Facebook</Button>
+            <Container maxWidth="sm">
+              <Grid container style={{ textAlign: 'center' }}>
+                <Grid item xs={2}>
+                  {/* <Button size="small" fullWidth variant="outlined" style={{ backgroundColor: "#ff4081" }} href="www.facebook.com">Facebook</Button> */}
+                  <FacebookShareButton url="www.facebook.com"><FacebookIcon size={40} round={true} /></FacebookShareButton>
+                </Grid>
+                <Grid item xs={2}>
+                  {/* <Button size="small" fullWidth variant="outlined" style={{ background3Color: "#00A9E8" }}  href="www.twitter.com">Twitter</Button> */}
+                  <TwitterShareButton url="www.twitter.com"><TwitterIcon size={40} round={true} /></TwitterShareButton>
+                </Grid>
+                <Grid item xs={2}>
+                  <WhatsappShareButton url="www.whatsapp.com"><WhatsappIcon size={40} round={true} /></WhatsappShareButton>
+                </Grid>  
+                <Grid item xs={2}>
+                  <TelegramShareButton url="www.telegram.com"><TelegramIcon size={40} round={true} /></TelegramShareButton>
+                </Grid>  
+                <Grid item xs={2}>
+                  <LineShareButton url="www.line.com"><LineIcon size={40} round={true} /></LineShareButton>
+                </Grid>  
+                <Grid item xs={2}>
+                  {/* <Button size="small" fullWidth variant="outlined" style={{ backgroundColor: "#00A9E8" }} >Email</Button> */}
+                  <EmailShareButton url="www.smureject.com"><EmailIcon size={40} round={true} /></EmailShareButton>
+                </Grid>  
               </Grid>
-              <Grid item xs={2}>
-              <Button size="small" fullWidth variant="outlined" style={{ backgroundColor: "#00A9E8" }}  href="www.twitter.com">Twitter</Button>
-              </Grid>
-              <Grid item xs={2}>
-              <Button size="small" fullWidth variant="outlined" style={{ backgroundColor: "#00A9E8" }} >Email</Button>
-              </Grid>  
-            </Grid>
-                
+            </Container>
           </Grid>
 
         </Grid>
