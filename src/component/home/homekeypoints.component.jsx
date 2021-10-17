@@ -25,7 +25,7 @@ function HomeKeyPoints() {
             <img src={Subscribe} className="logo" alt="..." />
             <p className="logo-header">Low subscription fee</p>
             <p className="logo-description">
-              By buying pads and tampons in bulks, we can sell it at a more affordable price
+              By buying pads and tampons in bulks, we can sell it at a more affordable price.
             </p>
           </Box>
         </Grid>
@@ -34,7 +34,7 @@ function HomeKeyPoints() {
             <img src={Awareness} className="logo" alt="..." />
             <p className="logo-header">Cycle Tracker</p>
             <p className="logo-description">
-              Help to overcome the period stigma by increasing awareness and understanding of menstruation
+              Help to overcome the period stigma by increasing awareness and understanding of menstruation.
             </p>
           </Box>
         </Grid>
@@ -43,7 +43,7 @@ function HomeKeyPoints() {
             <img src={Poverty} className="logo" alt="..." />
             <p className="logo-header">Education</p>
             <p className="logo-description">
-              Volunteer at our organization and you will receive benefits such as pads and tampons, and/or subscription packages
+              Volunteer at our organization and you will receive benefits such as pads and tampons, and/or subscription packages.
             </p>
           </Box>
         </Grid>
