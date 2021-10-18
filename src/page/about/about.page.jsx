@@ -50,13 +50,13 @@ function About() {
                   </Typography>
                 </p>
                 <p>
-                  <Typography variant="h6" color="text.secondary" style={{ fontWeight: 400 }}>
+                  <Typography variant="body1" >
                     We identified that women in India have a lack of access to pads to sanitary pads. With the stigma and shame in buying pads, this made it more difficult for women to adopt necessary hygiene towards the natural process of menstruation. With this in mind, our team wanted to empower women to gain easy access to pads, speak up about this stigma, and tackle the problem of gender inequality in India. 
                   </Typography>
                 </p>
                 <p>
-                  <Typography variant="h6" color="text.secondary" style={{ fontWeight: 400 }}>
-                    We created EMBRACE to allow all women in India to use a seamless ordering system to purchase affordable pad subscription packages, as well as easily track their menstruation cycles anytime and anywhere with internet access.
+                  <Typography variant="body1" >
+                    We created <strong className="about-header">EMBRACE</strong> to allow all women in India to use a seamless ordering system to purchase affordable pad subscription packages, as well as easily track their menstruation cycles anytime and anywhere with internet access.
                   </Typography>
                 </p>
               </Grid>
@@ -72,32 +72,33 @@ function About() {
         </Grid>
         <Grid item xs={12}>
           <Container maxWidth="md" >
-            <Grid container className="about-logo" spacing={3} style={{ marginTop: "5vh" }}>
+            <Grid container className="about-logo" spacing={1} style={{ marginTop: "5vh" }}>
               <Grid item xs={12} md={4} >
                 <Box>
                   <img src={MenstrualCalendar} className="logo" alt="..." />
-                  <p className="logo-header">Educate</p>
-                  <p className="logo-description">
+                  <Typography variant="h5" className="logo-header">Educate</Typography>
+                  <Typography variant="body1" className="logo-description">
                     We want to educate women about menstruation cycle and period hygiene.
-                  </p>
+                  </Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} md={4} >
                 <Box>
                   <img src={MenstrualCycle} className="logo" alt="..." />
-                  <p className="logo-header">Embrace</p>
-                  <p className="logo-description">
+                  <Typography variant="h5" className="logo-header">Embrace</Typography>
+                  <Typography variant="body1">
                     We want to embrace the pain and suffering of women who face pad poverty monthly.
-                  </p>
+                  </Typography>
+                    
                 </Box>
               </Grid>
               <Grid item xs={12} md={4} >
                 <Box>
                   <img src={menstruation} className="logo" alt="..." />
-                  <p className="logo-header">Empower</p>
-                  <p className="logo-description">
+                  <Typography variant="h5" className="logo-header">Empower</Typography>
+                  <Typography variant="body1" className="logo-description">
                     We hope to empower women to speak up about menstruation and destigmatise this issue. 
-                  </p>
+                  </Typography>
                 </Box>
               </Grid>
             </Grid>

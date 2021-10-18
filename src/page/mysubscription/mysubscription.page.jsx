@@ -36,30 +36,30 @@ function Mysubscription() {
                 <Card elevation={5}>
                   <CardContent>
                   <Box pt={2} pb={2} sx={{ display: 'grid', rowGap: 2, gridTemplateColumns: 'repeat(2, 1fr)' }}>
-                    <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
-                    Package Type
-                    </Typography>
-                    <Typography variant="body1">
-                    Monthly
-                    </Typography>
+                      <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
+                        Package Type
+                      </Typography>
+                      <Typography variant="body1">
+                        Monthly
+                      </Typography>
                     </Box>
                     <Divider />
                     <Box pt={2} pb={2} sx={{ display: 'grid', rowGap: 2, gridTemplateColumns: 'repeat(2, 1fr)' }}>
-                    <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
-                    Price
-                    </Typography>
-                    <Typography variant="body1">
-                    90 ₹
-                    </Typography>
+                      <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
+                        Price
+                      </Typography>
+                      <Typography variant="body1">
+                        90 ₹
+                      </Typography>
                     </Box>
                     <Divider />
-                    <Box pt={2} pb={2} sx={{ display: 'grid', rowGap: 2, gridTemplateColumns: 'repeat(2, 1fr)' }}>
+                      <Box pt={2} pb={2} sx={{ display: 'grid', rowGap: 2, gridTemplateColumns: 'repeat(2, 1fr)' }}>
                     <Typography gutterBottom variant="body1" style={{ fontWeight: 500 }}>
-                    Duration
+                      Duration
                     </Typography>
-                    <Typography variant="body1">
-                    4/12/2021 - 5/1/2022 (1 month)
-                    </Typography>
+                      <Typography variant="body1">
+                        4/12/2021 - 5/1/2022 (1 month)
+                      </Typography>
                     </Box>
                     <Divider />
                   </CardContent>

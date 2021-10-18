@@ -22,7 +22,7 @@ function Donate() {
             <Typography variant="h3" align="center" color="text.primary" gutterBottom>
               Donate Now
             </Typography>
-            <Typography variant="h4" align="center" color="text.primary" gutterBottom>
+            <Typography style={{color:"#ff4081"}} variant="h4" align="center" color="text.primary" gutterBottom>
               We need your help
             </Typography>
             <Box mt={5} mb={5}>

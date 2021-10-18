@@ -1,3 +1,5 @@
+$main-color: #ff4081;
+
 .about-logo {
   
   .logo {
@@ -7,6 +9,7 @@
 
   .logo-header {
     font-weight: bold;
+    color: $main-color;
   }
 
   .logo-description {
@@ -15,5 +18,5 @@
 }
 
 .about-header {
-  color: #ff4081;
+  color: $main-color;
 }
