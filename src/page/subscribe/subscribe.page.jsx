@@ -26,7 +26,10 @@ function Subscribe() {
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <Container maxWidth="lg">
         <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 6, pb: 6 }}>
-          <Box>
+          <Box style={{ textAlign: 'center' }}>
+            <img src={PeriodPoverty} alt="..." style={{ width: "100%", height: "100%"}}/>
+          </Box>
+          <Box my={3}>
             <Typography
               variant="h3"
               align="center"
@@ -47,12 +50,6 @@ function Subscribe() {
               Simply order your subscription directly on our website wherever you have internet access.
             </Typography>
           </Box>
-        </Container>
-        <Container maxWidth="md" component="main" sx={{ mb: 8 }}>
-          <Box style={{ textAlign: 'center', width: '100%', height: '100%' }}>
-            <img src={PeriodPoverty} alt="..." style={{ width: "50%", height: "50vh"}}/>
-          </Box>
-        
         </Container>
         <Container maxWidth="md" component="main" sx={{ pb: 8 }}>
           <Grid container spacing={5} alignItems="flex-end">
