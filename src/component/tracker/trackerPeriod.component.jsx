@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { jsPDF } from "jspdf";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -10,6 +11,7 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import './trackerPeriod.styles.scss';
 import TrackResults from './trackResults.component';
@@ -58,8 +60,17 @@ function TrackPeriod() {
     return !momentDate.isBetween(moment().subtract(1, "M").subtract(moment().date(), "days"), moment().add(3, "M").add(moment().date(), "days"))
   }
 
+  const generatePDF = () => {
+    var doc = new jsPDF("l", "pt", "A3");
+    doc.html(document.querySelector("#Results"), {
+      callback: function(pdf) {
+        pdf.save("tracker_results.pdf");
+      }
+    })
+  }
+
   return (
-    <Box >
+    <Box>
       <Grid container style={{ backgroundColor: "#E8DEFF", textAlign: "center", padding: "10px" }} >
         <Grid item xs={12} md={4}>
           <Box my={3}>
@@ -69,49 +80,48 @@ function TrackPeriod() {
           </Box>
 
           <Box >
-          <Grid container style={{ textAlign: 'center', display: 'flex' }}>
-            <Grid item xs={6}>
-              <SingleDatePicker
-                date={date} // momentPropTypes.momentObj or null
-                onDateChange={date => setDate(date)} // PropTypes.func.isRequired
-                focused={focusedInput} // PropTypes.bool
-                onFocusChange={({ focused }) => setFocusedInput( focused )} // PropTypes.func.isRequired
-                id="your_unique_id" // PropTypes.string.isRequired,
-                // displayFormat={() => "DD-MMM-YY"}
-                displayFormat={() => "D"}
-                renderDayContents={(momentDate) => 
-                  <Grid container>
-                    <Grid item xs={12}>
-                      {/* <span style={{ fontSize: "100%" }}>🩸</span>
-                      <span style={{ fontSize: "100%" }}>😭</span> */}
+            <Grid container style={{ textAlign: 'center', display: 'flex' }}>
+              <Grid item xs={6}>
+                <SingleDatePicker
+                  date={date} // momentPropTypes.momentObj or null
+                  onDateChange={date => setDate(date)} // PropTypes.func.isRequired
+                  focused={focusedInput} // PropTypes.bool
+                  onFocusChange={({ focused }) => setFocusedInput( focused )} // PropTypes.func.isRequired
+                  id="your_unique_id" // PropTypes.string.isRequired,
+                  // displayFormat={() => "DD-MMM-YY"}
+                  displayFormat={() => "D"}
+                  renderDayContents={(momentDate) => 
+                    <Grid container >
+                      <Grid item xs={12}>
+                        {/* <span style={{ fontSize: "100%" }}>🩸</span>
+                        <span style={{ fontSize: "100%" }}>😭</span> */}
+                      </Grid>
+                      <Grid item xs={12}>
+                        {momentDate.date()} 
+                      </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                      {momentDate.date()} 
-                    </Grid>
-                  </Grid>
-                }
-                numberOfMonths="1"
-                isOutsideRange={check}
-                readOnly
-                noBorder
-                customInputIcon={<EventNoteIcon />}
-                
-              />
-            </Grid>
-            <Grid item xs={6} style={{ textAlign: "left" }}>
-              <Box onClick={() => setFocusedInput(true)}>
-                <Box className="date-day">
-                  { date.format("dddd") }
+                  }
+                  numberOfMonths="1"
+                  isOutsideRange={check}
+                  readOnly
+                  noBorder
+                  customInputIcon={<EventNoteIcon />}
+                />
+              </Grid>
+              <Grid item xs={6} style={{ textAlign: "left" }}>
+                <Box onClick={() => setFocusedInput(true)}>
+                  <Box className="date-day">
+                    { date.format("dddd") }
+                  </Box>
+                  <Box className="date-day">
+                    { date.format("MMMM") }
+                  </Box>
                 </Box>
-                <Box className="date-day">
-                  { date.format("MMMM") }
-                </Box>
-              </Box>
+              </Grid>
             </Grid>
-          </Grid>
           </Box>
-
         </Grid>
+
         <Grid item xs={12} md={4}>
           <Box my={3}>
             <Typography variant="h6">
@@ -126,6 +136,7 @@ function TrackPeriod() {
             <Button color="inherit" variant="outlined" onClick={() => handleDaysLast(false)}><AddIcon /></Button>
           </Box>
         </Grid>
+
         <Grid item xs={12} md={4}>
           <Box my={3}>
             <Typography variant="h6">
@@ -141,6 +152,7 @@ function TrackPeriod() {
             <Button color="inherit" variant="outlined" onClick={() => handleMenstrualCycle(false)}><AddIcon /></Button>
           </Box>
         </Grid>
+
         <Grid item xs={12} style={{ textAlign: "center" }}>
           {
             !doReveal ?
@@ -163,16 +175,48 @@ function TrackPeriod() {
       {/* Results */}
       {
         doReveal ? 
-        <Box my={3}>
-          <Grid container>
-            <Grid item xs={12}>
-              <Typography variant="h5">
-                Next 3 months
-              </Typography>
+        <Box mt={10}  >
+          <Grid container id="Results">
+            <Grid item xs={12} style={{ textAlign: 'center' }} >
+              <Box my={2}>
+                <Typography variant="h5" >
+                  Menstruation estimation for the next 3 months
+                </Typography>
+              </Box>
             </Grid>
-            <Grid item xs={12} id="Results">
-              {/* <MemorizeResults startPeriodDate={date} daysLast={count} cycleCount={cycleCount} render={render}  /> */}
+            <Grid item xs={12} >
+              <Box style={{ display: 'flex', justifyContent: 'center' }} >
               <TrackResults startPeriodDate={date} daysLast={count} cycleCount={cycleCount}  />
+              </Box>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} style={{ textAlign: 'center' }} >
+              <Box mt={5}>
+                <Typography variant="subtitle1" color="text.secondary">
+                  Please note that this is only an estimation of your menstrual cycle.
+                </Typography>
+              </Box>
+              <Box mt={3}>
+                <Button variant="contained" endIcon={ <ChevronRightIcon /> } className="track-button" onClick={generatePDF}>
+                  Print your calendar
+                </Button>
+              </Box>
+              <Box mt={10}>
+                <Typography variant="h4" style={{ fontStyle: "italic" }}>
+                  Want to use a more personalized tracker?
+                </Typography>
+              </Box>
+              <Box mt={3}>
+                <Button variant="contained" size="large" style={{ backgroundColor: '#9867C5' }} component="a" href="/login">
+                  Create a free account with us
+                </Button>
+              </Box>
+              <Box mt={3}>
+                <Typography variant="subtitle1" color="text.secondary">
+                  Sign up to gain access to more features and reminders with just a click. It's that simple. 
+                </Typography>
+              </Box>
             </Grid>
           </Grid>
         </Box>
