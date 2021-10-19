@@ -11,11 +11,16 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/StarBorder';
 import GlobalStyles from '@mui/material/GlobalStyles';
+import { createTheme } from '@mui/material/styles';
 
 import PeriodPoverty from '../../asset/images/periodpoverty.jpg';
+import Pad from '../../asset/images/pad.png';
+
 import { subscribeList } from './subscribe';
 import { AuthContext } from '../../context/auth';
 import { PAYMENT_REQUEST, onPaymentDataChanged, onPaymentAuthorized } from '../payment/paymentDetails';
+
+import './subscribe.styles.scss';
 
 function Subscribe() {
 
@@ -40,13 +45,13 @@ function Subscribe() {
             </Typography>
           </Box>
           <Box mb={3}>
-            <Typography variant="h6" align="center" color="text.secondary" style={{ fontWeight: 400 }}>
+            <Typography variant="h6" align="center" color="text.primary" style={{ fontWeight: 400 }}>
               Our EMBRACE sanitary pads subscription packages allow women across Telangana gain access to pads affordably and seamlessly. 
               Women can order pads on a monthly, semi-annually, or annually basis, delivered right to their doorstep. 
             </Typography>
           </Box>
           <Box>
-            <Typography variant="h6" align="center" color="text.secondary" style={{ fontWeight: 400 }}>
+            <Typography variant="h6" align="center" color="text.primary" style={{ fontWeight: 400 }}>
               Simply order your subscription directly on our website wherever you have internet access.
             </Typography>
           </Box>
@@ -71,14 +76,16 @@ function Subscribe() {
                     subheaderTypographyProps={{
                       align: 'center',
                     }}
-                    sx={{
-                      backgroundColor: (theme) =>
-                        theme.palette.mode === 'light'
-                          ? theme.palette.grey[200]
-                          : theme.palette.grey[700],
-                    }}
+                    className = "word"
+                    style={{ backgroundColor: "#9867C5"}}
+                    // sx={{
+                    //   backgroundColor: (theme) =>
+                    //     theme.palette.mode === 'light'
+                    //       ? theme.palette.grey[200]
+                    //       : theme.palette.grey[700],
+                    // }}
                   />
-                  <CardContent>
+                  <CardContent style={{ backgroundColor: "#fbd2d7"}}>
                     <Box
                       sx={{
                         display: 'flex',
@@ -135,6 +142,35 @@ function Subscribe() {
             ))}
           </Grid>
         </Container>
+        {/* <Box my={2} py={8}> */}
+        <Container maxWidth="md">
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography variant="h6" color="text.primary" align="center">
+              <i>Embrace pads come in sets. Each set has 6 pads.</i>
+              </Typography>
+            </Grid>
+            <Grid item xs={12} style={{ display:'flex', justifyContent:'center' }}>
+              <Box mr={2} style={{ textAlign: 'center' }}>
+                <img src={Pad} alt="..." className="picture1" />
+              </Box>
+              <Typography variant="h6" style={{ fontWeight: 400 }} color="text.primary" align="center">
+                Day Pad: 23 cm
+              </Typography>
+            </Grid>
+            <Grid item xs={12} style={{ display:'flex', justifyContent:'center' }}>
+              <Box mr={2} style={{ textAlign: 'center' }}>
+                <img src={Pad} alt="..." className="picture2" />
+              </Box>
+              <Box mt={1}>
+              <Typography variant="h6" style={{ fontWeight: 400 }} color="text.primary" align="center">
+              Night Pad: 35 cm
+              </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+        {/* </Box> */}
       </Container>
     </Box>
   )
