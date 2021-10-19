@@ -31,10 +31,10 @@ function Donate() {
             </Typography>
             </Box>
             <Box mb={5}>
-            <Typography variant="h6" align="center" color="text.primary" gutterBottom style={{ fontWeight: 400 }}>
+            <Typography variant="body1" align="center" color="text.primary" gutterBottom style={{ fontWeight: 400 }}>
             Come join us on this journey of normalizing menstruation in India. Your gift will go a long way in empowering women all across Telangana and beyond in the future.
             </Typography>
-            <Typography variant="h6" align="center" color="text.primary" gutterBottom style={{ fontWeight: 400 }}>
+            <Typography variant="body1" align="center" color="text.primary" gutterBottom style={{ fontWeight: 400 }}>
             Your gift will go a long way in empowering women all across Telangana and beyond in the future.
             </Typography>
             </Box>
