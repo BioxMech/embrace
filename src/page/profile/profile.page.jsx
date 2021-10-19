@@ -10,9 +10,9 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+
 import { db } from '../../util/firebase';
 import { getDoc, doc } from "firebase/firestore";
-
 import ProfilePicture from '../../asset/images/woman.png';
 import Woman from '../../asset/images/woman.png';
 import { AuthContext } from '../../context/auth';

@@ -1,7 +1,6 @@
 // $header-color: #f48fb1;
 $header-color: #fbd2d7;
 
-
 .appBar {
   background-color: $header-color !important;
   color: black !important;
@@ -77,4 +76,13 @@ $header-color: #fbd2d7;
     color: white;
     text-transform: uppercase;
   }
+}
+
+////////////////////////// End of Drawer //////////////////////////
+
+
+.menu-item-name {
+  // background-color: $header-color;
+  color: #8733d6;
+  font-weight: 800;
 }
