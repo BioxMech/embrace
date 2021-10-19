@@ -15,9 +15,11 @@ import Typography from '@mui/material/Typography';
 import Icon from '@mui/material/Icon';
 
 import Distribution from '../../asset/images/distribution.jpeg';
-import Education from '../../asset/images/education.jpg';
+import Education from '../../asset/images/education.jpeg';
 import Facebook from '../../asset/images/facebook.svg';
 import Twitter from '../../asset/images/twitter.svg';
+
+import './support.styles.scss';
 
 function Support() {
 
@@ -26,17 +28,27 @@ function Support() {
   return (
     <Box my={2} py={8}>
       <Container maxWidth="md" >
+        <Grid container spacing={5} mb={5}>
+        <Grid item xs={12}>
+            <Typography variant="h3" align="center" color="text.primary" gutterBottom>
+            <strong className="card-header">Join Us</strong>
+            </Typography>
+            <Typography variant="h6" align="center" color="text.primary" >
+            <i>Join our EMBRACE movement by following us on socials and volunteering. Help us be one step closer to destigmatizing menstruation in India. </i>
+            </Typography>
+          </Grid>
+        </Grid>
         <Grid container spacing={5}>
           <Grid item xs={12}>
             <Typography variant="h3" align="center" color="text.primary" gutterBottom>
-              Volunteer 
+            <strong className="card-header">Volunteer</strong>
             </Typography>
             <Typography style={{color:"#ff4081"}} variant="h4" align="center" color="text.secondary" >
               Support our efforts
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} style={{ display:'flex', justifyContent:'center' }}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345 }} style={{ backgroundColor: "#fbd2d7" }}>
               <CardMedia
                 component="img"
                 height="250"
@@ -45,9 +57,9 @@ function Support() {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div" align="center">
-                  Distribute with us
+                <strong className="card-header">Distribute with us</strong>
                 </Typography>
-                <Typography variant="body2" color="text.secondary" align="center">
+                <Typography variant="body2" color="text.primary" align="center">
                   Help EMBRACE pack pads into subscription packages and help us distribute pads to schools, organizations, and villages throughout India.
                 </Typography>
               </CardContent>
@@ -58,7 +70,7 @@ function Support() {
           </Grid>
 
           <Grid item xs={12} md={6} style={{ display:'flex', justifyContent:'center' }}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345 }} style={{ backgroundColor: "#fbd2d7" }}>
               <CardMedia
                 component="img"
                 height="250"
@@ -67,9 +79,9 @@ function Support() {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div" align="center" >
-                  Spread Awareness with us
+                <strong className="card-header">Spread Awareness with us</strong>
                 </Typography>
-                <Typography variant="body2" color="text.secondary" align="center">
+                <Typography variant="body2" color="text.primary" align="center">
                   Help to educate girls and women in India about menstruation and spread awareness for menstrual hygiene through fun activities. 
                   Help girls break the stigma and embrace their bodies.
                 </Typography>
@@ -87,7 +99,7 @@ function Support() {
           <Grid container style={{ textAlign: 'center' }}>
             <Grid item xs={12}>
               <Typography variant="h4" align="center" color="text.primary" gutterBottom>
-                Follow Our Social Media
+                Follow Us On Social Media
               </Typography>
               <Box my={3}>
                 <Container maxWidth="sm">
@@ -121,7 +133,7 @@ function Support() {
             <Grid item xs={12}>
               <Box my={3}>
                 <Typography style={{color: "#9867C5", fontStyle: "italic"}} variant="h4" align="center" color="text.primary" gutterBottom>
-                  Share our movement
+                  Stay updated & Share our movement
                 </Typography>
               </Box>
               <Grid item xs={12}>

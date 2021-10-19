@@ -8,6 +8,8 @@ import Subscribe from '../../asset/images/subscribe.svg';
 import Awareness from '../../asset/images/awareness.svg';
 import Poverty from '../../asset/images/poverty.svg';
 
+import './homekeypoints.styles.scss';
+
 function HomeKeyPoints() {
 
   return (
@@ -23,28 +25,32 @@ function HomeKeyPoints() {
         <Grid item xs={12} md={4}>
           <Box >
             <img src={Subscribe} className="logo" alt="..." />
-            <p className="logo-header">Low subscription fee</p>
-            <p className="logo-description">
+            <Typography variant="h5" className="logo-header">Low subscription fee</Typography>
+            <Typography variant="body1" className="logo-description">
+            By buying pads and tampons in bulks, we can sell it at a more affordable price.
+            </Typography>
+            {/* <p className="logo-description">
               By buying pads and tampons in bulks, we can sell it at a more affordable price.
-            </p>
+            </p> */}
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
             <img src={Awareness} className="logo" alt="..." />
-            <p className="logo-header">Cycle Tracker</p>
-            <p className="logo-description">
-              Help to overcome the period stigma by increasing awareness and understanding of menstruation.
-            </p>
+            <Typography variant="h5" className="logo-header">Cycle Tracker</Typography>
+            <Typography variant="body1" className="logo-description">
+            Help to overcome the period stigma by increasing awareness and understanding of menstruation.
+            </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
             <img src={Poverty} className="logo" alt="..." />
-            <p className="logo-header">Education</p>
-            <p className="logo-description">
-              Volunteer at our organization and you will receive benefits such as pads and tampons, and/or subscription packages.
-            </p>
+            <Typography variant="h5" className="logo-header">Education</Typography>
+            <Typography variant="body1" className="logo-description">
+            Volunteer at our organization and you will receive benefits such as pads and tampons, and/or subscription packages.
+            </Typography>
+            
           </Box>
         </Grid>
       </Grid>  
