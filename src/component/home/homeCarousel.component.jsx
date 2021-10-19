@@ -95,7 +95,7 @@ function HomeCarousel() {
             </Box>
             <Box my={2}>
               <span className="home-picture-description" >
-                Bleed Free
+                Let's talk PERIODS
               </span>
             </Box>
             <Box my={2}>
@@ -140,7 +140,7 @@ function HomeCarousel() {
             </Box>
             <Box my={2}>
               <span className="home-picture-description" >
-                Bleed Free
+                Let's talk PERIODS
               </span>
             </Box>
             <Box my={2}>

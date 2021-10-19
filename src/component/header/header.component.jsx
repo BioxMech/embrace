@@ -214,7 +214,13 @@ function Header() {
                     onClick={handleClick}
                   >
                     {/* ========================= Profile ========================= */} 
-                    { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : null : null }
+
+                    <Hidden smDown>
+                      <Box>
+                        { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : "User" : "User" }
+                      </Box>
+                    </Hidden>
+
                     <Box ml={1}>
                       <Avatar alt="P" style={{ width: 35, height: 35 }} 
                         src={ 
@@ -249,6 +255,14 @@ function Header() {
                     'aria-labelledby': 'basic-button',
                   }}
                 >
+                  <Hidden smUp>
+                    <Box className="menu-item-name">
+                      <MenuItem disableRipple dense divider>
+                        Hi, { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : null : null }
+                      </MenuItem>
+                    </Box>
+                  </Hidden>
+                  {/* <Divider /> */}
                   <MenuItem component="a" onClick={handleClose} href={`/profile`} >Profile</MenuItem>
                   <MenuItem component="a" onClick={handleSignOut} href={`/`}>Logout</MenuItem>
                 </Menu>
