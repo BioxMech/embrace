@@ -25,17 +25,17 @@ function About() {
             }} 
           />
           <Box py={2} className="home-picture-box">
-            <Box my={2}>
+            {/* <Box my={2}>
               IGNITE
-            </Box>
+            </Box> */}
             <Box my={2}>
               <span className="home-picture-description" >
-                About IgniteUs
+                Educate | Embrace | Empower
               </span>
             </Box>
             <Box my={2}>
-              <Button className="support-button" variant="contained" style={{ backgroundColor : "#f50057" }} component="a" href="/donate">
-                Support Us
+              <Button  variant="contained" style={{ backgroundColor : "purple" }} component="a" href="#aboutus">
+                About Embrace
               </Button>
             </Box>
           </Box>
@@ -43,9 +43,9 @@ function About() {
         <Grid item xs={12}>
           <Container maxWidth="md">
             <Grid container>
-              <Grid item xs={12}>
+              <Grid item xs={12} id="aboutus">
                 <p>
-                  <Typography variant="h3" color="text.primary">
+                  <Typography variant="h3" color="text.primary" >
                     How We <strong className="about-header">Started</strong>
                   </Typography>
                 </p>
