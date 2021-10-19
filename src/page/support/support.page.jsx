@@ -44,7 +44,7 @@ function Support() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081" }}>Sign Up as a Distributor</Button>
+                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081", marginTop: "20px" }}>Sign Up as a Distributor</Button>
               </CardActions>
             </Card>
           </Grid>
@@ -58,7 +58,7 @@ function Support() {
                 alt="Education"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div" align="center">
+                <Typography gutterBottom variant="h5" component="div" align="center" >
                   Spread Awareness with us
                 </Typography>
                 <Typography variant="body2" color="text.secondary" align="center">
@@ -67,7 +67,7 @@ function Support() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081" }}>Sign Up as a Volunteer</Button>
+                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081"}}>Sign Up as a Volunteer</Button>
               </CardActions>
             </Card>
           </Grid>
@@ -89,18 +89,18 @@ function Support() {
           </Container>
           </Box>
 
-      <Box>
+      
       <Container maxWidth="xs">
-        <Grid container style={{ textAlign: 'center' }}>
-          <Grid item xs={4} pr={2}>
+        <Grid container style={{ textAlign: 'center', margin: 'auto' }}>
+          <Grid item xs={6} pr={2}>
           <Button size="small" fullWidth variant="contained" component="a" href="www.facebook.com">Facebook</Button>
           </Grid>
-          <Grid item xs={4} pr={2}>
+          <Grid item xs={6} pr={2}>
           <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#00A9E8" }} component="a" href="www.twitter.com">Twitter</Button>
           </Grid>
         </Grid>
       </Container>
-      </Box>
+      
           {/* <Grid item xs={12} md={6} style={{ display:'flex', justifyContent:'center' }}>
             <Card sx={{ maxWidth: 345 }}>
               <CardMedia
