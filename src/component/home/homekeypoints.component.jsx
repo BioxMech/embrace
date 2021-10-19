@@ -5,8 +5,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import Subscribe from '../../asset/images/subscribe.svg';
-import Awareness from '../../asset/images/awareness.svg';
-import Poverty from '../../asset/images/poverty.svg';
+import Period from '../../asset/images/period.png';
+import Teach from '../../asset/images/teach.png';
 
 import './homekeypoints.styles.scss';
 
@@ -25,9 +25,10 @@ function HomeKeyPoints() {
         <Grid item xs={12} md={4}>
           <Box >
             <img src={Subscribe} className="logo" alt="..." />
-            <Typography variant="h5" className="logo-header">Low subscription fee</Typography>
+            <Typography variant="h5" className="logo-header">Subscription</Typography>
             <Typography variant="body1" className="logo-description">
-            By buying pads and tampons in bulks, we can sell it at a more affordable price.
+            Low subscription fee of monthly sanitary pads sets delivered to women across Telangana. 
+            Our volunteers also help distribute pads to underpriviledged women.
             </Typography>
             {/* <p className="logo-description">
               By buying pads and tampons in bulks, we can sell it at a more affordable price.
@@ -36,19 +37,20 @@ function HomeKeyPoints() {
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
-            <img src={Awareness} className="logo" alt="..." />
+            <img src={Period} className="logo" alt="..." />
             <Typography variant="h5" className="logo-header">Cycle Tracker</Typography>
             <Typography variant="body1" className="logo-description">
-            Help to overcome the period stigma by increasing awareness and understanding of menstruation.
+            Allowing girls and women across India to track their menstruation cycles 
+            conveniently - with just a few clicks on our website.
             </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
-            <img src={Poverty} className="logo" alt="..." />
+            <img src={Teach} className="logo" alt="..." />
             <Typography variant="h5" className="logo-header">Education</Typography>
             <Typography variant="body1" className="logo-description">
-            Volunteer at our organization and you will receive benefits such as pads and tampons, and/or subscription packages.
+            Destigmatizing menstruation through online and offline education efforts, such as Embrace Blog and volunteering.
             </Typography>
             
           </Box>
