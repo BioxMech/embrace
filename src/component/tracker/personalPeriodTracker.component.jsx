@@ -177,7 +177,7 @@ function PersonalPeriodTracker({ userData, bloodLevel, mood, pain }) {
           </Typography>
         </Box>
         <Box my={3}>
-          <Button variant="filled" style={{ backgroundColor: "#FA4C86", color: "white" }} endIcon={<ArrowForwardIosIcon />} >Set Reminder Now</Button>
+          <Button variant="filled" style={{ backgroundColor: "#FA4C86", color: "white" }} endIcon={<ArrowForwardIosIcon />} href="/reminder" >Set Reminder Now</Button>
         </Box>
       </Grid>
       <Hidden smDown>

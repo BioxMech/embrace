@@ -16,6 +16,7 @@ import Profile from './page/profile/profile.page';
 import PersonalBloodFlow from './page/personalBloodFlow/personalBloodFlow.page';
 import PersonalMood from './page/personalMood/personalMood.page';
 import PersonalCalendar from './page/personalCalendar/personalCalendar.page';
+import Reminder from './page/reminder/reminder.page';
 
 import AuthRoute from './util/AuthRoute';
 import { AuthProvider } from './context/auth';
@@ -40,6 +41,7 @@ function App() {
           <AuthRoute exact path="/personalBloodFlow" component={PersonalBloodFlow} userLoggedIn={true} />
           <AuthRoute exact path="/personalMood" component={PersonalMood} userLoggedIn={true} />
           <AuthRoute exact path="/personalCalendar" component={PersonalCalendar} userLoggedIn={true} />
+          <AuthRoute exact path="/reminder" component={Reminder} userLoggedIn={true} />
           <Redirect to="/" />
         </Switch>
         <Footer />

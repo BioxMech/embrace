@@ -64,7 +64,7 @@ function Support() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#9867C5", marginTop: "20px" }}>Sign Up as a Distributor</Button>
+                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#9867C5", marginTop: "20px" }} href="https://forms.gle/YkPNHVNevsCxpBkf9">Sign Up as a Distributor</Button>
               </CardActions>
             </Card>
           </Grid>
@@ -87,7 +87,7 @@ function Support() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081"}}>Sign Up as a Volunteer</Button>
+                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081"}} href="https://forms.gle/YkPNHVNevsCxpBkf9">Sign Up as a Volunteer</Button>
               </CardActions>
             </Card>
           </Grid>
