@@ -33,8 +33,8 @@ function Support() {
             <Typography variant="h3" align="center" color="text.primary" gutterBottom>
             <strong className="card-header">Join Us</strong>
             </Typography>
-            <Typography variant="h6" align="center" color="text.primary" >
-            <i>Join our <strong className="about-header">EMBRACE</strong> movement by following us on socials and volunteering. Help us be one step closer to destigmatizing menstruation in India. </i>
+            <Typography variant="h6" align="center" color="text.primary" style={{ fontWeight: 400 }}>
+            <i>Join our <strong className="about-header">EMBRACE</strong> movement by following us on socials and volunteering with us. Help us be one step closer to destigmatizing menstruation in India. </i>
             </Typography>
           </Grid>
         </Grid>

@@ -27,8 +27,8 @@ function HomeKeyPoints() {
             <img src={Subscribe} className="logo" alt="..." />
             <Typography variant="h5" className="logo-header">Subscription</Typography>
             <Typography variant="body1" className="logo-description">
-            Low subscription fee of monthly sanitary pads sets delivered to women across Telangana. 
-            Our volunteers also help distribute pads to underpriviledged women.
+            Low subscription fee of monthly sanitary pad sets delivered to women across Telangana. 
+            Our volunteers also help distribute pads to underprivileged women.
             </Typography>
             {/* <p className="logo-description">
               By buying pads and tampons in bulks, we can sell it at a more affordable price.

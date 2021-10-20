@@ -50,15 +50,15 @@ function Donate() {
             </Typography>
             <Box mt={5} mb={5}>
               <Typography variant="h6" align="center" color="text.primary" gutterBottom style={{ fontWeight: 400 }}>
-                YOU can help us change the lives of 23 million girls - who drop out of school due to lack of menstrual hygiene and awareness. With as little as $1 you can prevent a girl in India from dropping out of school and change her life.
+                YOU can help us change the lives of 23 million girls - who drop out of school due to lack of menstrual hygiene and awareness. With as little as $1, you can prevent a girl in India from dropping out of school and change her life.
               </Typography>
             </Box>
             <Box mb={5}>
               <Typography variant="body1" align="center" color="text.primary" gutterBottom style={{ fontWeight: 400 }}>
-                Come join us on this journey of normalizing menstruation in India. Your gift will go a long way in empowering women all across Telangana and beyond in the future.
+                Come join us on this journey of normalizing menstruation in India. 
               </Typography>
               <Typography variant="body1" align="center" color="text.primary" gutterBottom style={{ fontWeight: 400 }}>
-                Your gift will go a long way in empowering women all across Telangana and beyond in the future.
+                Your gift will go a long way in empowering women across Telangana and beyond in the future.
               </Typography>
             </Box>
           </Grid>
