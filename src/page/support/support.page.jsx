@@ -64,7 +64,7 @@ function Support() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#9867C5", marginTop: "20px" }} href="https://forms.gle/YkPNHVNevsCxpBkf9">Sign Up as a Distributor</Button>
+                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#9867C5", marginTop: "20px" }} target="_blank" rel="noreferrer noopener" href="https://forms.gle/YkPNHVNevsCxpBkf9">Sign Up as a Distributor</Button>
               </CardActions>
             </Card>
           </Grid>
@@ -87,7 +87,7 @@ function Support() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081"}} href="https://forms.gle/YkPNHVNevsCxpBkf9">Sign Up as a Volunteer</Button>
+                <Button size="small" fullWidth variant="contained" style={{ backgroundColor: "#ff4081"}} target="_blank" rel="noreferrer noopener" href="https://forms.gle/YkPNHVNevsCxpBkf9">Sign Up as a Volunteer</Button>
               </CardActions>
             </Card>
           </Grid>
@@ -138,23 +138,23 @@ function Support() {
               </Box>
               <Grid item xs={12}>
                 <Container maxWidth="sm">
-                  <Grid container style={{ textAlign: 'center' }}>
-                    <Grid item xs={2}>
+                  <Grid container style={{ textAlign: 'center' }} spacing={2}>
+                    <Grid item xs={3} sm={2}>
                       <FacebookShareButton url={link} quote="Embrace Period with us!!: "><FacebookIcon size={40} round={true} /></FacebookShareButton>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={3} sm={2}>
                       <TwitterShareButton url={link} title="Embrace Period with us!!: " hashtags={["freeperiod", "periodisnormal"]}><TwitterIcon size={40} round={true} /></TwitterShareButton>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={3} sm={2}>
                       <WhatsappShareButton url={link} title="Embrace Period with us!!: "><WhatsappIcon size={40} round={true} /></WhatsappShareButton>
                     </Grid>  
-                    <Grid item xs={2}>
+                    <Grid item xs={3} sm={2}>
                       <TelegramShareButton url={link}><TelegramIcon size={40} round={true} /></TelegramShareButton>
                     </Grid>  
-                    <Grid item xs={2}>
+                    <Grid item xs={6} sm={2}>
                       <LineShareButton url={link} title="Embrace Period with us!!: "><LineIcon size={40} round={true} /></LineShareButton>
                     </Grid>  
-                    <Grid item xs={2}>
+                    <Grid item xs={6} sm={2}>
                       <EmailShareButton url={link} subject="Embrace Period with us!!: " body="We, Embrace, would love to have your support in spreading the awareness of period in India, and possibly worldwide!"><EmailIcon size={40} round={true} /></EmailShareButton>
                     </Grid>  
                   </Grid>

@@ -42,12 +42,8 @@ export const footerList = [
       },
       {
         "label": "Partner with us",
-        "href": "#"
+        "href": "/support"
       },
-      {
-        "label": "Email",
-        "href": "#"
-      }
     ]
   }
 ]
