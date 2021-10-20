@@ -52,14 +52,16 @@ function Footer() {
           }
         </Grid>
       </Container>
-      <Typography variant="body2" color="text.secondary" align="center" >
-        {'Copyright © '}
-        <Link color="inherit" href="/">
-          Ignite
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
+      <Box my={2}>
+        <Typography variant="body2" color="text.secondary" align="center" >
+          {'Copyright © '}
+          <Link color="inherit" href="/">
+            Ignite
+          </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
+        </Typography>
+      </Box>
     </Box> 
   )
 }

@@ -18,8 +18,8 @@ function Payment() {
         onLoadPaymentData={paymentRequest => {
             console.log("load payment data", paymentRequest);
           }}
-          onPaymentDataChanged={onPaymentDataChanged}
-          onPaymentAuthorized={onPaymentAuthorized}
+        onPaymentDataChanged={onPaymentDataChanged}
+        onPaymentAuthorized={onPaymentAuthorized}
       />
     </div>
   )

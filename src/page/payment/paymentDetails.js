@@ -1,54 +1,54 @@
 export const PAYMENT_REQUEST = {
-    apiVersion: 2,
-    apiVersionMinor: 0,
-    allowedPaymentMethods: [
-      {
-        type: "CARD",
+  apiVersion: 2,
+  apiVersionMinor: 0,
+  allowedPaymentMethods: [
+    {
+      type: "CARD",
+      parameters: {
+        allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+        allowedCardNetworks: ["AMEX", "DISCOVER", "JCB", "MASTERCARD", "VISA"]
+      },
+      tokenizationSpecification: {
+        type: "PAYMENT_GATEWAY",
         parameters: {
-          allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-          allowedCardNetworks: ["AMEX", "DISCOVER", "JCB", "MASTERCARD", "VISA"]
-        },
-        tokenizationSpecification: {
-          type: "PAYMENT_GATEWAY",
-          parameters: {
-            gateway: "example",
-            gatewayMerchantId: 'exampleGatewayMerchantId',
-          }
+          gateway: "example",
+          gatewayMerchantId: 'exampleGatewayMerchantId',
         }
       }
-    ],
-    merchantInfo: {
-      merchantId: "12345678901234567890",
-      merchantName: "Demo Merchant"
-    },
-    transactionInfo: {
-      displayItems: [
-        {
-          label: "Subtotal",
-          type: "SUBTOTAL",
-          price: "11.00",
-        },
-        {
-          label: "Tax",
-          type: "TAX",
-          price: "1.00",
-        }
-      ],
-      countryCode: 'US',
-      currencyCode: "USD",
-      totalPriceStatus: "FINAL",
-      totalPrice: "12.00",
-      totalPriceLabel: "Total"
-    },
-    callbackIntents: [
-      "SHIPPING_ADDRESS",  "SHIPPING_OPTION", "PAYMENT_AUTHORIZATION"
-    ],
-    shippingAddressRequired: true,
-    shippingOptionRequired : true,
-    shippingAddressParameters: {
-      phoneNumberRequired: true
     }
+  ],
+  merchantInfo: {
+    merchantId: "12345678901234567890",
+    merchantName: "Embrace"
+  },
+  transactionInfo: {
+    displayItems: [
+      {
+        label: "Subtotal",
+        type: "SUBTOTAL",
+        price: "2900.00",
+      },
+      {
+        label: "Tax",
+        type: "TAX",
+        price: "100.00",
+      }
+    ],
+    countryCode: 'IN',
+    currencyCode: "INR",
+    totalPriceStatus: "FINAL",
+    totalPrice: "3000.00",
+    totalPriceLabel: "Total"
+  },
+  callbackIntents: [
+    "SHIPPING_ADDRESS",  "SHIPPING_OPTION", "PAYMENT_AUTHORIZATION"
+  ],
+  shippingAddressRequired: true,
+  shippingOptionRequired : true,
+  shippingAddressParameters: {
+    phoneNumberRequired: true
   }
+}
 
 export function onPaymentAuthorized(paymentData) {
   return new Promise(function(resolve, reject){
@@ -130,12 +130,12 @@ function getGoogleDefaultShippingOptions() {
       },
       {
         "id": "shipping-002",
-        "label": "$1.99: Standard shipping",
+        "label": "$10.00: Standard shipping",
         "description": "Standard shipping delivered in 3 business days."
       },
       {
         "id": "shipping-003",
-        "label": "$10: Express shipping",
+        "label": "$50.00: Express shipping",
         "description": "Express shipping delivered in 1 business day."
       },
     ]
@@ -166,18 +166,18 @@ function getGoogleTransactionInfo() {
       {
         label: "Subtotal",
         type: "SUBTOTAL",
-        price: "11.00",
+        price: "2900.00",
       },
       {
         label: "Tax",
         type: "TAX",
-        price: "1.00",
+        price: "100.00",
       }
     ],
-    countryCode: 'US',
-    currencyCode: "USD",
+    countryCode: 'IN',
+    currencyCode: "INR",
     totalPriceStatus: "FINAL",
-    totalPrice: "12.00",
+    totalPrice: "3000.00",
     totalPriceLabel: "Total"
   };
 }
@@ -185,7 +185,7 @@ function getGoogleTransactionInfo() {
 function getShippingCosts() {
   return {
     "shipping-001": "0.00",
-    "shipping-002": "1.99",
-    "shipping-003": "10.00"
+    "shipping-002": "10.00",
+    "shipping-003": "50.00"
   }
 }
