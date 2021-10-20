@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # config
-/src/util/config.js
+# /src/util/config.js
