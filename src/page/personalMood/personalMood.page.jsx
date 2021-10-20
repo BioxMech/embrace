@@ -143,8 +143,8 @@ function PersonalMood(props) {
             <Box p={2} sx={{ border: "1px solid black", borderRadius: "10px" }}>
               <Stack direction="row" spacing={2}>
                 <img className="exclamation-logo" src={Exclamation} alt="!" />
-                <Typography variant="h5">
-                  About Mood Changes
+                <Typography variant="h5" className="word-color">
+                  <strong> About Mood Changes </strong>
                 </Typography>
               </Stack>
               <Typography variant="body1">
@@ -224,8 +224,8 @@ function PersonalMood(props) {
                   <Box mt={5} p={2} sx={{ border: "1px solid black", borderRadius: "10px", textAlign: 'left' }}>
                     <Stack direction="row" spacing={2}>
                       <img className="exclamation-logo" src={Exclamation} alt="!" />
-                      <Typography variant="h5">
-                        About Pain
+                      <Typography variant="h5" className="word-color">
+                        <strong> About Pain </strong>
                       </Typography>
                     </Stack>
                     <Typography variant="body1">
