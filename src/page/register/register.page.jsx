@@ -106,7 +106,8 @@ function Register() {
     const regEx = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/;
     
     if (variable === "name") {
-      const nameRegex = /^[a-zA-Z]+$/;
+      // const nameRegex = /^[a-zA-Z]+$/;
+      const nameRegex = /^[a-z ,.'-]+$/i;
       if (!value.match(nameRegex)) {
         setErrors({ ...errors, name: "Invalid name" })
       } else {

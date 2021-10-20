@@ -200,18 +200,29 @@ function PersonalPeriodTracker({ userData, bloodLevel, mood, pain }) {
               </Box>
             </Box>
           </Box>
-          <Box ml={10}>
-            <Button component={Link} to={{ pathname: "/personalCalendar", state: { userData: userData }}} variant="filled" style={{ backgroundColor: "#9867C5", color: "white" }} startIcon={<EventNoteIcon />}>View My Calendar</Button>
-          </Box>
+          {
+            pain !== null && mood !== null && bloodLevel !== null ? 
+            <Box ml={10}>
+              <Button component={Link} to={{ pathname: "/personalCalendar", state: { userData: userData }}} variant="filled" style={{ backgroundColor: "#9867C5", color: "white" }} startIcon={<EventNoteIcon />}>View My Calendar</Button>
+            </Box>
+            :
+            null
+          }
+          
         </Grid>
       </Hidden>
-      <Grid item xs={12} sm={6}>
-        <Hidden smUp>
-          <Box >
-            <Button component={Link} to={{ pathname: "/personalCalendar", state: { userData: userData }}} variant="filled" style={{ backgroundColor: "#9867C5", color: "white" }} startIcon={<EventNoteIcon />}>View My Calendar</Button>
-          </Box>
-        </Hidden>
-      </Grid>
+      {
+        pain !== null && mood !== null && bloodLevel !== null ? 
+        <Grid item xs={12} sm={6}>
+          <Hidden smUp>
+            <Box >
+              <Button component={Link} to={{ pathname: "/personalCalendar", state: { userData: userData }}} variant="filled" style={{ backgroundColor: "#9867C5", color: "white" }} startIcon={<EventNoteIcon />}>View My Calendar</Button>
+            </Box>
+          </Hidden>
+        </Grid>
+        :
+        null
+      }
     </>
   )
 }
