@@ -1,8 +1,8 @@
 # <img src="./src/asset/images/logo.png" style="width: 40px"> EMBRACE 
 
-We identified that women in India have a lack of access to pads to sanitary pads. With the stigma and shame in buying pads, this made it more difficult for women to adopt necessary hygiene towards the natural process of menstruation. With this in mind, our team wanted to empower women to gain easy access to pads, speak up about this stigma, and tackle the problem of gender inequality in India.
+IgniteUs identified that women in India have a lack of access to pads to sanitary pads. With the stigma and shame in buying pads, this made it more difficult for women to adopt necessary hygiene towards the natural process of menstruation. With this in mind, our team wanted to empower women to gain easy access to pads, speak up about this stigma, and tackle the problem of gender inequality in India.
 
-We created EMBRACE to allow all women in India to use a seamless ordering system to purchase affordable pad subscription packages, as well as easily track their menstruation cycles anytime and anywhere with internet access.
+We created [EMBRACE](https://embrace-b75f7.web.app/) to allow all women in India to use a seamless ordering system to purchase affordable pad subscription packages, as well as easily track their menstruation cycles anytime and anywhere with internet access.
 
 # Live Website
 [Embrace](https://embrace-b75f7.web.app/) is deployed live on [Firebase](https://firebase.google.com/docs/hosting).
