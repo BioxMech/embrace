@@ -1,12 +1,25 @@
-# Getting Started with Create React App
+# <img src="./src/asset/images/logo.png" style="width: 40px"> EMBRACE 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We identified that women in India have a lack of access to pads to sanitary pads. With the stigma and shame in buying pads, this made it more difficult for women to adopt necessary hygiene towards the natural process of menstruation. With this in mind, our team wanted to empower women to gain easy access to pads, speak up about this stigma, and tackle the problem of gender inequality in India.
 
-## Available Scripts
+We created EMBRACE to allow all women in India to use a seamless ordering system to purchase affordable pad subscription packages, as well as easily track their menstruation cycles anytime and anywhere with internet access.
 
-In the project directory, you can run:
+# Live Website
+[Embrace](https://embrace-b75f7.web.app/) is deployed live on [Firebase](https://firebase.google.com/docs/hosting).
 
-### `yarn start`
+# Guides to launch the application
+
+### You need to enter `npm i` in the command prompt of the project root directory in order to download all the dependencies required for the website to run locally.
+
+<br />
+
+#### <i>Then ...</i>
+
+<br />
+
+### In the project directory, you can run:
+
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +27,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
+### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,44 +35,64 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information. But for this project, [Firebase](https://firebase.google.com/docs/hosting) was used to deploy.
 
-### `yarn eject`
+# Installed Packages/Dependencies as of 20/10/2021
+<img src="./public/images/Dependency.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Notable Technology Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[ReactJS](https://reactjs.org/) was mainly used for the entire project as it was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Learn More
+## <b>Database</b>
+### Firebase
+#### `npm install firebase firebaseui`
+[Firebase](https://firebase.google.com/docs/web/setup) is Google's database services and it would mainly be using the [Firestore](https://firebase.google.com/docs/firestore/quickstart) as a database. If you need to store images or documents, you can utilize Firebase's [storage](https://firebase.google.com/docs/storage).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<strong>You are required to add a config.js file - which contains all the required keys - in the util folder with the firebase configs obtained from [Firebase](https://firebase.google.com/docs/web/setup) - <i>if only you are missing it, obviously</i> </strong>
+```
+project
+│   README.md
+│   App.js
+|   ...
+│
+└───src
+   │   component
+   │   context
+   │   ...
+   └───util
+       │   firebase.js
+       │   AuthRoute.js
+       │   config.js <<<<<<<<<<<
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## <b>Framework</b>
+### Material UI
+#### `npm install @mui/material @emotion/react @emotion/styled`  
+[Material UI v5](https://mui.com/getting-started/installation/) installed. It is the main styling framework for almost all components in the project.
 
-### Analyzing the Bundle Size
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Additional Notes 
+### [react-router-dom](https://reactrouter.com/web/guides/quick-start) + [Node Sass](https://www.npmjs.com/package/node-sass) 
+#### `npm i node-sass react-router-dom --save`
 
-### Making a Progressive Web App
+auth.js + AuthRoute.js added for security measure in blocking certain web pages from entering without logging in. Using context to persist state to ensure that the user stays logged in after refreshing the page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Firebase [authentication](https://firebase.google.com/docs/auth) along with [Firestore](https://firebase.google.com/docs/firestore) is also used to record logging details and do simple verification checks when logging in to an account on [Embrace](https://embrace-b75f7.web.app/).
 
-### Advanced Configuration
+### HTML to PDF
+#### `npm i jspdf --save`
+[jspdf](https://www.npmjs.com/package/jspdf) is used to convert a certain part of the HTML body that is rendered and be saved in PDF format.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### [React-dates](https://github.com/airbnb/react-dates)
+#### `npm i react-dates --save`
+Calendar API created by [Airbnb](https://www.airbnb.com.sg/) themselves, so it is a rather versatile and flexible API to use for the website.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
