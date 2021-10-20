@@ -25,34 +25,36 @@ function HomeKeyPoints() {
         <Grid item xs={12} md={4}>
           <Box >
             <img src={Subscribe} className="logo" alt="..." />
-            <Typography variant="h5" className="logo-header">Subscription</Typography>
-            <Typography variant="body1" className="logo-description">
-            Low subscription fee of monthly sanitary pads sets delivered to women across Telangana. 
-            Our volunteers also help distribute pads to underpriviledged women.
+            <Typography variant="h5" className="logo-header">
+              Subscription
             </Typography>
-            {/* <p className="logo-description">
-              By buying pads and tampons in bulks, we can sell it at a more affordable price.
-            </p> */}
+            <Typography variant="body1" className="logo-description">
+              Low subscription fee of monthly sanitary pads sets delivered to women across Telangana. 
+              Our volunteers also help distribute pads to underpriviledged women.
+            </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
             <img src={Period} className="logo" alt="..." />
-            <Typography variant="h5" className="logo-header">Cycle Tracker</Typography>
+            <Typography variant="h5" className="logo-header">
+              Cycle Tracker
+            </Typography>
             <Typography variant="body1" className="logo-description">
-            Allowing girls and women across India to track their menstruation cycles 
-            conveniently - with just a few clicks on our website.
+              Allowing girls and women across India to track their menstruation cycles 
+              conveniently - with just a few clicks on our website.
             </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
             <img src={Teach} className="logo" alt="..." />
-            <Typography variant="h5" className="logo-header">Education</Typography>
-            <Typography variant="body1" className="logo-description">
-            Destigmatizing menstruation through online and offline education efforts, such as Embrace Blog and volunteering.
+            <Typography variant="h5" className="logo-header">
+              Education
             </Typography>
-            
+            <Typography variant="body1" className="logo-description">
+              Destigmatizing menstruation through online and offline education efforts, such as Embrace Blog and volunteering.
+            </Typography>
           </Box>
         </Grid>
       </Grid>  

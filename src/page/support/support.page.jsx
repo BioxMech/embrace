@@ -109,16 +109,20 @@ function Support() {
                         className="facebook"
                         fullWidth
                         variant="contained"
+                        target="_blank" 
+                        rel="noreferrer noopener"
                         component="a"
-                        href="https://www.facebook.com/"
+                        href="https://www.facebook.com/Embrace-112771584520374/?ref=page_internal"
                         sx={{ mb: 2 }} 
                         startIcon={<Icon style={{ display: 'flex', alignItems: "center" }} ><img src={Facebook} alt="Facebook" className="facebook-icon" /></Icon>}
                       >Follow us on Facebook</Button>  
                     </Grid>
                     <Grid item xs={6} pr={2}>
                       <Button 
+                        target="_blank" 
+                        rel="noreferrer noopener"
                         component="a" 
-                        href="https://www.twitter.com/"
+                        href="https://twitter.com/embraceignite"
                         className="twitter"
                         fullWidth
                         variant="contained"

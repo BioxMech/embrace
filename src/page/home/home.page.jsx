@@ -16,9 +16,6 @@ function Home() {
           <Grid item xs={12} style={{ marginTop: "5vh" }}>
             <HomeKeyPoints />
           </Grid>
-          <Grid item xs={12} style={{ marginTop: "5vh" }}>
-            
-          </Grid>
         </Grid>
       </Box>
     // </Container>

@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -78,18 +76,10 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const data = new FormData(event.currentTarget); // store all form data
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         // Signed in 
-        // const docRef = doc(db, "users", email);
-        // const docSnap = await getDoc(docRef);
         const docRef = query(collection(db, "users"), where("email", "==", email));
-        // const q = query(docRef, where("email", "==", email))
         const docSnap = await getDocs(docRef);
 
         var name = '';
@@ -101,27 +91,6 @@ function Login() {
           context.login(user, name);
         
         });
-
-        // if (docSnap.exists()) {
-        //   console.log(docSnap.data())
-          // console.log("Document data:", docSnap.data());
-          // name = docSnap.data().displayName;
-          
-        // } else {
-          // doc.data() will be undefined in this case
-          // console.log("No such document!");
-        // }
-        // const user = { ...userCredential.user, displayName: name };
-        // const token = "V$wrVbDBz,7m:y73<D={Fz!d3CVe@S";
-        // context.login(user, name);
-        // checkDB(name)
-        // setDoc(doc(db, "users", user.uid), {
-        //   displayName: user.displayName,
-        //   email: user.email,
-        //   photoURL: user.photoURL,
-        //   createdAt: new Date()
-        // });
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -134,15 +103,9 @@ function Login() {
           case 'auth/email-already-in-use':
             setErrors({ ...errors, email: "Email already registered. Try login?"})
             break;
-          // case 'auth/invalid-email':
-          //   console.log(`Email address ${this.state.email} is invalid.`);
-          //   break;
           case 'auth/operation-not-allowed':
             console.log(`Error during sign up.`);
             break;
-          // case 'auth/weak-password':
-          //   console.log('Password is not strong enough. Add additional characters including special characters and numbers.');
-          //   break;
           case 'auth/wrong-password':
             setErrors({ ...errors, password: "Incorrect password" });
             break;
@@ -313,12 +276,6 @@ function Login() {
                   helperText={ errors.password ? `${errors.password}` : "" }
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid> */}
             </Grid>
             <Button
               type="submit"

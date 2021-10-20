@@ -36,10 +36,10 @@ export const footerList = [
         "label": "Facebook",
         "href": "https://www.facebook.com/Embrace-112771584520374/?ref=page_internal"
       },
-      // {
-      //   "label": "Instagram",
-      //   "href": "#"
-      // },
+      {
+        "label": "Twitter",
+        "href": "https://twitter.com/embraceignite"
+      },
       {
         "label": "Partner with us",
         "href": "/support"
