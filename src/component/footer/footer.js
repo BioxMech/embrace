@@ -3,17 +3,17 @@ export const footerList = [
     "name": "Our Services",
     "descriptionList": [
       {
-        "label": "Subscription packages",
+        "label": "Subscription Packages",
         "href": "/subscribe"
       },
       {
         "label" : "Cycle Tracker",
         "href": "/tracker"
       },
-      {
-        "label": "FAQ",
-        "href" : "/about"
-      }
+    //   {
+    //     "label": "FAQ",
+    //     "href" : "/about"
+    //   }
     ]
   },
   {
@@ -34,20 +34,16 @@ export const footerList = [
     "descriptionList": [
       {
         "label": "Facebook",
-        "href": "#"
+        "href": "https://www.facebook.com/Embrace-112771584520374/?ref=page_internal"
       },
-      {
-        "label": "Instagram",
-        "href": "#"
-      },
+      // {
+      //   "label": "Instagram",
+      //   "href": "#"
+      // },
       {
         "label": "Partner with us",
-        "href": "#"
+        "href": "/support"
       },
-      {
-        "label": "Email",
-        "href": "#"
-      }
     ]
   }
 ]

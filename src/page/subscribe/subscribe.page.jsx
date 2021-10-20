@@ -12,6 +12,8 @@ import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/StarBorder';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import { createTheme } from '@mui/material/styles';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 import PeriodPoverty from '../../asset/images/periodpoverty.jpg';
 import Pad from '../../asset/images/pad.png';
@@ -22,9 +24,26 @@ import { PAYMENT_REQUEST, onPaymentDataChanged, onPaymentAuthorized } from '../p
 
 import './subscribe.styles.scss';
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 function Subscribe() {
 
   const { user } = useContext(AuthContext);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   return (
     <Box>
@@ -126,6 +145,7 @@ function Subscribe() {
                           paymentRequest={ PAYMENT_REQUEST }
                           onLoadPaymentData={paymentRequest => {
                             console.log("load payment data", paymentRequest);
+                            handleClick();
                           }}
                           onPaymentDataChanged={onPaymentDataChanged}
                           onPaymentAuthorized={onPaymentAuthorized}
@@ -136,6 +156,11 @@ function Subscribe() {
                           { buttonText }
                         </Button>
                     }
+                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+                      <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                        Payment Received! We hope you enjoy the package!
+                      </Alert>
+                    </Snackbar>
                   </CardActions>
                 </Card>
               </Grid>

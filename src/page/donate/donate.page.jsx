@@ -9,13 +9,33 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 import './donate.styles.scss';
 import DonateImg from '../../asset/images/donate.jpg';
+import { PAYMENT_REQUEST, onPaymentDataChanged, onPaymentAuthorized } from '../payment/paymentDetails';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 function Donate() {
 
   // const link = "https://embrace-b75f7.web.app/";
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   return (
     <Box  my={2} py={8}>
@@ -52,41 +72,19 @@ function Donate() {
               <GooglePayButton
                 environment="TEST"
                 buttonType="donate"
-                paymentRequest={{
-                  apiVersion: 2,
-                  apiVersionMinor: 0,
-                  allowedPaymentMethods: [
-                    {
-                      type: 'CARD',
-                      parameters: {
-                        allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                        allowedCardNetworks: ['MASTERCARD', 'VISA'],
-                      },
-                      tokenizationSpecification: {
-                        type: 'PAYMENT_GATEWAY',
-                        parameters: {
-                          gateway: 'example',
-                          gatewayMerchantId: 'exampleGatewayMerchantId',
-                        },
-                      },
-                    },
-                  ],
-                  merchantInfo: {
-                    merchantId: '12345678901234567890',
-                    merchantName: 'Demo Merchant',
-                  },
-                  transactionInfo: {
-                    totalPriceStatus: 'FINAL',
-                    totalPriceLabel: 'Total',
-                    totalPrice: '100.00',
-                    currencyCode: 'USD',
-                    countryCode: 'US',
-                  },
-                }}
+                paymentRequest={PAYMENT_REQUEST}
                 onLoadPaymentData={paymentRequest => {
                   alert('load payment data', paymentRequest);
+                  handleClick();
                 }}
+                onPaymentDataChanged={onPaymentDataChanged}
+                onPaymentAuthorized={onPaymentAuthorized}
               />
+              <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                  Thank you very much for donating!! We at EMBRACE, thank you.
+                </Alert>
+              </Snackbar>
             </Box>
           </Grid>
           <Grid item xs={12}>

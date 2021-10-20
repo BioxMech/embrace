@@ -17,7 +17,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from "firebase/auth";
 import { auth, googleProvider, FacebookProvider, TwitterProvider, db } from '../../util/firebase';
-import { setDoc, getDoc, doc } from "firebase/firestore";
+import { setDoc, getDoc, doc, collection, query, where, getDocs } from "firebase/firestore";
 import { AuthContext } from '../../context/auth';
 
 import './login.styles.scss';
@@ -57,8 +57,8 @@ function Login() {
     }
   }
 
-  async function checkDB() {
-    const docRef = doc(db, "trackers", localStorage.getItem("token"));
+  async function checkDB(name) {
+    const docRef = doc(db, "trackers", name);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -86,20 +86,35 @@ function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         // Signed in 
-        const docRef = doc(db, "users", email);
-        const docSnap = await getDoc(docRef);
+        // const docRef = doc(db, "users", email);
+        // const docSnap = await getDoc(docRef);
+        const docRef = query(collection(db, "users"), where("email", "==", email));
+        // const q = query(docRef, where("email", "==", email))
+        const docSnap = await getDocs(docRef);
+
         var name = '';
-        if (docSnap.exists()) {
-          console.log("Document data:", docSnap.data());
-          name = docSnap.data().displayName;
-        } else {
+        docSnap.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          name = doc.data().displayName;
+          const user = { ...userCredential.user, displayName: name };
+          checkDB(name)
+          context.login(user, name);
+        
+        });
+
+        // if (docSnap.exists()) {
+        //   console.log(docSnap.data())
+          // console.log("Document data:", docSnap.data());
+          // name = docSnap.data().displayName;
+          
+        // } else {
           // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
-        const user = { ...userCredential.user, displayName: name };
+          // console.log("No such document!");
+        // }
+        // const user = { ...userCredential.user, displayName: name };
         // const token = "V$wrVbDBz,7m:y73<D={Fz!d3CVe@S";
-        context.login(user, name);
-        checkDB()
+        // context.login(user, name);
+        // checkDB(name)
         // setDoc(doc(db, "users", user.uid), {
         //   displayName: user.displayName,
         //   email: user.email,
@@ -149,15 +164,14 @@ function Login() {
       // const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log(user)
-      context.login(user, user.displayName);
       setDoc(doc(db, "users", user.displayName), {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
         createdAt: new Date()
       });
-      checkDB()
+      checkDB(user.displayName)
+      context.login(user, user.displayName);
       // ...
     }).catch((error) => {
       console.log(error)
@@ -181,14 +195,14 @@ function Login() {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       // const credential = FacebookAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
-      context.login(user, user.displayName);
       setDoc(doc(db, "users", user.displayName), {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
         createdAt: new Date()
       });
-      checkDB()
+      checkDB(user.displayName)
+      context.login(user, user.displayName);
       // ...
     })
     .catch((error) => {
@@ -215,14 +229,15 @@ function Login() {
 
       // The signed-in user info.
       const user = result.user;
-      context.login(user, user.displayName);
+      console.log(user)
       setDoc(doc(db, "users", user.displayName), {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
         createdAt: new Date()
       });
-      checkDB()
+      checkDB(user.displayName)
+      context.login(user, user.displayName);
       // ...
     }).catch((error) => {
       // Handle Errors here.
