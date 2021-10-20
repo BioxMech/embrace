@@ -25,7 +25,7 @@ export const headersData = [
   },
   {
     label: "blog",
-    href: "/blog",
+    href: "https://embraceblog.medium.com",
     target: true
   },
 
