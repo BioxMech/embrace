@@ -16,7 +16,8 @@ import PersonalBloodFlow from '../personalBloodFlow/personalBloodFlow.page';
 
 function Tracker() {
 
-  const { user } = useContext(AuthContext);
+  const { user, token } = useContext(AuthContext);
+  console.log(token)
   const [userData, setUserData] = useState(null);
   const [bloodLevel, setBloodLevel] = useState(null);
   const [mood, setMood] = useState(null);

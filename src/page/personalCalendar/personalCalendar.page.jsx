@@ -106,8 +106,6 @@ function PersonalCalendar(props) {
     })
   }
 
-  
-
   const [startDate, setStartDate] = useState(moment());
   // const [endDate, setEndDate] = useState(startPeriodDate.clone().add(daysLast, "days"));
   const [focusedInput, setFocusedInput] = useState("START_DATE");
@@ -128,8 +126,8 @@ function PersonalCalendar(props) {
   }
 
   return (
-    <Box my={5} id="Tracker-Results">
-      <Paper elevation={0}>
+    <Box my={5} >
+      <Paper elevation={0} id="Tracker-Results" className="personal-calendar">
         <Container maxWidth="lg">
           <Stack direction="row" spacing={1} my={5} alignItems="center">
             <Avatar alt="P" src={userData ? userData.photoURL === undefined ? ProfilePhoto : userData.photoURL : ProfilePhoto } />
@@ -251,13 +249,13 @@ function PersonalCalendar(props) {
             { props === "Sa" ? "Sat" : ""}
           </span>}
         />
-        <Box mt={3} style={{ textAlign: 'center' }}>
+        
+      </Paper>
+      <Box mt={3} style={{ textAlign: 'center' }}>
           <Button variant="contained" endIcon={ <FileDownloadIcon /> } className="track-button" onClick={generatePDF}>
             Print your calendar
           </Button>
         </Box>
-      </Paper>
-      
     </Box>
   )
 }
