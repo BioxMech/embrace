@@ -19,7 +19,7 @@ function Footer() {
   const [activeItem, setActiveItem] = useState(path);
 
   return (
-    <Box mt={5} pt={2} className="footer-box">
+    <Box mt={5} py={2} className="footer-box">
       <Container maxWidth="lg">
         <Grid container style={{ display: "flex", justifyContent: "space-around", textAlign: "center" }}>
           {
@@ -36,6 +36,16 @@ function Footer() {
                       </Typography>
                     </Box>
                   ))}
+                  {
+                    name === "Contact Us" ? 
+                    <Box>
+                      <Typography variant="body1" color="inherit" className={"footer-description"}>
+                        Email: hello@embrace.com
+                      </Typography>
+                    </Box>
+                    :
+                    null
+                  }
                 </Box>
               </Grid>
             ))
