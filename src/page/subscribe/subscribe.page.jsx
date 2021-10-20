@@ -32,7 +32,7 @@ function Subscribe() {
       <Container maxWidth="lg">
         <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 6, pb: 6 }}>
           <Box style={{ textAlign: 'center' }}>
-            <img src={PeriodPoverty} alt="..." style={{ width: "100%", height: "100%"}}/>
+            <img src={PeriodPoverty} alt="..." style={{ width: "80%", height: "80%"}}/>
           </Box>
           <Box my={3}>
             <Typography
@@ -72,7 +72,7 @@ function Subscribe() {
                     title={ name }
                     subheader={ subheader }
                     titleTypographyProps={{ align: 'center' }}
-                    action={ name === 'ANNUALLY' ? <StarIcon /> : null }
+                    action={ name === "EMPOWER Annual Package" ? <StarIcon /> : null }
                     subheaderTypographyProps={{
                       align: 'center',
                     }}

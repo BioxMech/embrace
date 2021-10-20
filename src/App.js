@@ -13,7 +13,9 @@ import Payment from './page/payment/payment.page';
 import Donate from './page/donate/donate.page';
 import Tracker from './page/tracker/tracker.page';
 import Profile from './page/profile/profile.page';
-import Mysubscription from './page/mysubscription/mysubscription.page';
+import PersonalBloodFlow from './page/personalBloodFlow/personalBloodFlow.page';
+import PersonalMood from './page/personalMood/personalMood.page';
+import PersonalCalendar from './page/personalCalendar/personalCalendar.page';
 
 import AuthRoute from './util/AuthRoute';
 import { AuthProvider } from './context/auth';
@@ -35,7 +37,9 @@ function App() {
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/payment" component={Payment} userLoggedIn={true} />
           <AuthRoute exact path="/profile" component={Profile} userLoggedIn={true} />
-          <AuthRoute exact path="/mysubscription" component={Mysubscription} userLoggedIn={true}/>
+          <AuthRoute exact path="/personalBloodFlow" component={PersonalBloodFlow} userLoggedIn={true} />
+          <AuthRoute exact path="/personalMood" component={PersonalMood} userLoggedIn={true} />
+          <AuthRoute exact path="/personalCalendar" component={PersonalCalendar} userLoggedIn={true} />
           <Redirect to="/" />
         </Switch>
         <Footer />

@@ -16,7 +16,7 @@ export const subscribeList = [
   {
     "tierNumber": "3",
     "name": "EMPOWER Annual Package",
-    "subheader": "Best Value",
+    "subheader": <b>Best Value</b>,
     "price": 80,
     "description": [
       "36 sets of Day Pads",

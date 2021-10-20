@@ -57,6 +57,25 @@ function Login() {
     }
   }
 
+  async function checkDB() {
+    const docRef = doc(db, "trackers", localStorage.getItem("token"));
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // console.log("Document data:", docSnap.data());
+      console.log("Welcome!")
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such tracker!");
+      setDoc(doc(db, "trackers", localStorage.getItem("token")), {
+        bloodLevel: null,
+        mood: null,
+        pain: null,
+        date: null
+      });
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // const data = new FormData(event.currentTarget); // store all form data
@@ -79,7 +98,8 @@ function Login() {
         }
         const user = { ...userCredential.user, displayName: name };
         // const token = "V$wrVbDBz,7m:y73<D={Fz!d3CVe@S";
-        context.login(user, email);
+        context.login(user, name);
+        checkDB()
         // setDoc(doc(db, "users", user.uid), {
         //   displayName: user.displayName,
         //   email: user.email,
@@ -137,6 +157,7 @@ function Login() {
         photoURL: user.photoURL,
         createdAt: new Date()
       });
+      checkDB()
       // ...
     }).catch((error) => {
       console.log(error)
@@ -167,6 +188,7 @@ function Login() {
         photoURL: user.photoURL,
         createdAt: new Date()
       });
+      checkDB()
       // ...
     })
     .catch((error) => {
@@ -200,6 +222,7 @@ function Login() {
         photoURL: user.photoURL,
         createdAt: new Date()
       });
+      checkDB()
       // ...
     }).catch((error) => {
       // Handle Errors here.

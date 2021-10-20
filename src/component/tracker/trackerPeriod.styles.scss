@@ -43,3 +43,36 @@
   background-color: rgba(255, 0, 0, 0.25) !important;
   color: black;
 }
+
+// ================== PERSONAL PERIOD TRACKER ===================================
+
+.circle-day {
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #E8DEFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23vw;
+  height: 45vh;
+  min-width: 330px;
+  min-height: 10px;
+
+  .inner-circle {
+    background-color: #FBD2D7;
+    border-radius: 50%;
+    width: 19vw;
+    height: 40vh;
+    min-width: 300px;
+    min-height: 100px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bloodCircle {
+    background-color: #E26058;
+  }
+}

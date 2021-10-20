@@ -30,7 +30,7 @@ function About() {
             </Box> */}
             <Box my={2}>
               <span className="home-picture-description" >
-                Educate | Embrace | Empower
+                Educate | Empower | Embrace
               </span>
             </Box>
             <Box my={2}>

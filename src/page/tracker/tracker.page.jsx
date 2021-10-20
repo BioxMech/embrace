@@ -1,68 +1,71 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ControlPointIcon from '@mui/icons-material/ControlPoint';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
+import { db } from '../../util/firebase';
+import { updateDoc, getDoc, doc } from "firebase/firestore";
+import './tracker.styles.scss';
 import { AuthContext } from '../../context/auth';
 import TrackPeriod from '../../component/tracker/trackerPeriod.component';
+import PersonalPeriodTracker from '../../component/tracker/personalPeriodTracker.component';
+import PersonalBloodFlow from '../personalBloodFlow/personalBloodFlow.page';
+// import PersonalCalendar from '../../component/tracker/personalCalendar.component';
 // import { userData } from '../../util/common';
 
 function Tracker() {
 
   const { user } = useContext(AuthContext);
-  const [userData] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [bloodLevel, setBloodLevel] = useState(null);
+  const [mood, setMood] = useState(null);
+  const [pain, setPain] = useState(null);
+  const [date, setDate] = useState(null);
+  
+  // console.log(user)
+  async function checkDB() {
+    if (!user) { return null; }
+    const docRef = doc(db, "users", localStorage.getItem("token"));
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // console.log("Document data:", docSnap.data());
+      setUserData(docSnap.data())
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such user!");
+    }
+  }
+
+  async function checkTracker() {
+    if (!user) { return null; }
+    const docRef = doc(db, "trackers", localStorage.getItem("token"));
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // console.log("Document data:", docSnap.data());
+      // setTrackerData(docSnap.data())
+      const data = docSnap.data();
+      setBloodLevel(data.bloodLevel);
+      setMood(data.mood);
+      setPain(data.pain);
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such tracker!");
+    }
+  }
+
+  useEffect(() => {
+    checkDB();
+    checkTracker();
+  }, [])
 
   const loggedInTracker = (
     <Box py={6}>
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item xs={12} md={6}>
-            <Box my={3}>
-              <Typography variant="h4">
-                Hi <strong style={{ color: "#9867C5" }}>Priyanka</strong> { console.log(userData)}
-              </Typography>
-            </Box>
-            <Box my={3}>
-              <Typography variant="body1">
-                Today - Day XX of your cycle
-              </Typography>
-            </Box>
-            <Box my={3}>
-              <Typography variant="subtitle2" color="text.secondary">
-                Next period in <strong style={{ color: '#E26058' }}>0 days</strong>
-              </Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                Chance of pregnancy: <strong style={{ color: "#2BA3BD" }}>n/a</strong>
-              </Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                Ovulation in: <strong style={{ color: '#9867C5' }}>0 days</strong>
-              </Typography>
-            </Box>
-            <Box my={3}>
-              <Typography variant="h6">
-                How do you feel today? <ControlPointIcon /> <InsertEmoticonIcon />
-              </Typography>
-            </Box>
-            <Box my={3}>
-              <Typography variant="h6">
-                Set Reminder For Period
-              </Typography>
-              <Button variant="filled" style={{ backgroundColor: "#FA4C86", color: "white" }} endIcon={<ArrowForwardIosIcon />} >Set Reminder Now</Button>
-            </Box>
-          </Grid>
-          <Grid xs={12} md={6}>
-            <Box>
-              <Box>
-                <Typography variant="body1">day</Typography>
-                <Typography variant="h5">0</Typography>
-              </Box>
-            </Box>
-          </Grid>
+      <Container maxWidth="md">
+        <Grid container >
+          <PersonalPeriodTracker userData={userData} bloodLevel={bloodLevel} mood={mood} pain={pain} />
         </Grid>
       </Container>
     </Box>

@@ -1,0 +1,16 @@
+// ================== PERSONAL BLOOD FLOW ===================================
+.bloodTarget-logo {
+  width: 35px;
+}
+
+.blood-logo {
+  transition: transform 1s;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.exclamation-logo {
+  width: 30px;
+}

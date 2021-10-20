@@ -5,7 +5,6 @@ import Card from '@mui/material/Card';
 import Avatar from '@mui/material/Avatar';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
@@ -14,7 +13,6 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import { db } from '../../util/firebase';
 import { getDoc, doc } from "firebase/firestore";
 import ProfilePicture from '../../asset/images/woman.png';
-import Woman from '../../asset/images/woman.png';
 import { AuthContext } from '../../context/auth';
 import './profile.styles.scss';
 
@@ -23,7 +21,7 @@ function Profile() {
     const { user } = useContext(AuthContext);
 
     const [userData, setUserData] = useState(null);
-    // console.log(user)
+    
     async function checkDB() {
       if (!user) { return null; }
       const docRef = doc(db, "users", localStorage.getItem("token"));
@@ -86,16 +84,13 @@ function Profile() {
                 {/* Priyanka */}
                 { user ? userData ? userData.displayName : user.displayName !== null ? user.displayName : "Loading..." : "Loading..." }
               </Typography>
-              {/* <Button className="profile-special-buttons" component="a" href="/mysubscription" color="inherit">
-                My Subscriptions
-              </Button> */}
             </Grid>
             <Grid item xs={12} md={8}>
               <Box my={2}>
                 <Typography variant="h6">
                   Basic Information
                 </Typography>
-              </Box>
+             </Box>
               <Box>
                 <Card elevation={5}>
                   <CardContent>

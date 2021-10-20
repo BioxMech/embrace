@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Hidden from '@mui/material/Hidden';
 
 import './trackerPeriod.styles.scss';
 import TrackResults from './trackResults.component';
@@ -186,7 +187,8 @@ function TrackPeriod() {
             </Grid>
             <Grid item xs={12} >
               <Box style={{ display: 'flex', justifyContent: 'center' }} >
-              <TrackResults startPeriodDate={date} daysLast={count} cycleCount={cycleCount}  />
+                {/* ========================================= RESULTS ========================================= */}
+                <TrackResults startPeriodDate={date} daysLast={count} cycleCount={cycleCount}  />
               </Box>
             </Grid>
           </Grid>
@@ -198,9 +200,16 @@ function TrackPeriod() {
                 </Typography>
               </Box>
               <Box mt={3}>
-                <Button variant="contained" endIcon={ <ChevronRightIcon /> } className="track-button" onClick={generatePDF}>
-                  Print your calendar
-                </Button>
+                <Hidden smUp>
+                  <Button variant="contained" endIcon={ <ChevronRightIcon /> } className="track-button" onClick={generatePDF}>
+                    Print current month
+                  </Button>
+                </Hidden>
+                <Hidden smDown>
+                  <Button variant="contained" endIcon={ <ChevronRightIcon /> } className="track-button" onClick={generatePDF}>
+                    Print your calendar
+                  </Button>
+                </Hidden>
               </Box>
               <Box mt={10}>
                 <Typography variant="h4" style={{ fontStyle: "italic" }}>

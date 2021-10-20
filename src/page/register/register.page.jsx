@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { AuthContext } from '../../context/auth';
 import { auth, db } from '../../util/firebase';
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import './register.styles.scss';
 
@@ -24,6 +24,27 @@ const theme = createTheme();
 function Register() {
 
   const context = useContext(AuthContext); // Holds the LOGIN or LOGOUT
+
+  async function checkDB() {
+    const docRef = doc(db, "trackers", localStorage.getItem("token"));
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // console.log("Document data:", docSnap.data());
+      console.log("Welcome!")
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such tracker!");
+      setDoc(doc(db, "trackers", localStorage.getItem("token")), {
+        bloodLevel: null,
+        mood: null,
+        pain: null,
+        date: null
+      });
+    }
+  }
+
+  const [disabledSubmit, setDisabledSubmit] = useState(true);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,13 +55,14 @@ function Register() {
           // Signed in 
           const user = { ...userCredential.user, displayName: name };
           // const token = 'V$wrVbDBz,7m:y73<D={Fz!d3CVe@S';
-          context.login(user, email);
-          await setDoc(doc(db, "users", email), {
+          context.login(user, name);
+          await setDoc(doc(db, "users", name), {
             displayName: user.displayName,
             email: user.email,
             photoURL: user.photoURL,
             createdAt: new Date()
           });
+          checkDB();
           // ...
         })
         .catch((error) => {
@@ -78,7 +100,7 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
 
-  const handleOnChange = (e) => {
+  const handleOnChange = async (e) => {
     const variable = e.target.name;
     const value = e.target.value;
     const regEx = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/;
@@ -88,6 +110,17 @@ function Register() {
       if (!value.match(nameRegex)) {
         setErrors({ ...errors, name: "Invalid name" })
       } else {
+        const docRef = doc(db, "users", value);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          // console.log("Document data:", docSnap.data());
+          setDisabledSubmit(true)
+          setErrors({ ...errors, name: "Invalid name" })
+        } else {
+          // doc.data() will be undefined in this case
+          setDisabledSubmit(false);
+        }
         delete errors["name"];
         setName(value);
       }
@@ -224,7 +257,7 @@ function Register() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              disabled={ Object.keys(errors).length !== 0 ? true : false }
+              disabled={ Object.keys(errors).length !== 0 || disabledSubmit ? true : false }
             >
               Sign Up
             </Button>
