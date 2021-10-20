@@ -100,27 +100,27 @@ function PersonalBloodFlow(props) {
             <Box p={2} sx={{ border: "1px solid black", borderRadius: "10px" }}>
               <Stack direction="row" spacing={2}>
                 <img className="exclamation-logo" src={Exclamation} alt="!" />
-                <Typography variant="h5">
-                  About Bleeding
+                <Typography variant="h5" className="word-color">
+                  <strong> About Bleeding </strong>
                 </Typography>
               </Stack>
               <Typography variant="body1">
                 <p>
                   Your period is the shedding of the blood and tissue lining of the uterus that grew to support a potential pregnancy. 
                   Your period is also the first day of your menstrual cycle.  
-                  The average period lasts 4-6 days and comes regularly between 21 and 25 days apart. 
+                  The average period lasts <b>4-6 days</b> and comes regularly between 21 and 25 days apart. 
                 </p>
                 <Typography variant="h6">
                   <strong> Types of Bleeding </strong>
                 </Typography>
                 <p>
-                  <strong>Heavy</strong> - The heaviest days of bleeding may occur during the beginning of your period
+                  <strong>Heavy</strong> - The heaviest days of bleeding may occur during the beginning of your period.
                 </p>
                 <p>
-                  <strong>Medium</strong> - A moderate amount of bleeding as your period begins to wane from its heaviest days
+                  <strong>Medium</strong> - A moderate amount of bleeding as your period begins to wane from its heaviest days.
                 </p>
                 <p>
-                  <strong>Light</strong> - Light bleeding is most likely to appear at the start and end of your period 
+                  <strong>Light</strong> - Light bleeding is most likely to appear at the start and end of your period.
                 </p>
               </Typography>
             </Box>
