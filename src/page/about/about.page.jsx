@@ -51,7 +51,7 @@ function About() {
                 </p>
                 <p>
                   <Typography variant="body1" >
-                    We identified that women in India have a lack of access to pads to sanitary pads. With the stigma and shame in buying pads, this made it more difficult for women to adopt necessary hygiene towards the natural process of menstruation. With this in mind, our team wanted to empower women to gain easy access to pads, speak up about this stigma, and tackle the problem of gender inequality in India. 
+                  We identified that women in India have a lack of access to sanitary pads. With the stigma and shame in buying pads, this makes it more difficult for women to adopt necessary hygiene towards the natural process of menstruation. With this in mind, our team wanted to empower women to gain easy access to pads, speak up about this stigma, and tackle the problem of gender inequality in India. 
                   </Typography>
                 </p>
                 <p>
@@ -87,7 +87,7 @@ function About() {
                   <img src={MenstrualCycle} className="logo" alt="..." />
                   <Typography variant="h5" className="logo-header">Embrace</Typography>
                   <Typography variant="body1">
-                    We want to embrace the pain and suffering of women who face pad poverty monthly.
+                  We want to encourage women to embrace their bodies and the natural process of menstruation.
                   </Typography>
                     
                 </Box>

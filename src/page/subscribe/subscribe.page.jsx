@@ -65,12 +65,12 @@ function Subscribe() {
           <Box mb={3}>
             <Typography variant="h6" align="center" color="text.primary" style={{ fontWeight: 400 }}>
               Our EMBRACE sanitary pads subscription packages allow women across Telangana gain access to pads affordably and seamlessly. 
-              Women can order pads on a monthly, semi-annually, or annually basis, delivered right to their doorstep. 
+              You can order pads on a monthly, semi-annually, or annually basis, delivered right to your doorstep. 
             </Typography>
           </Box>
           <Box>
             <Typography variant="h6" align="center" color="text.primary" style={{ fontWeight: 400 }}>
-              Simply order your subscription directly on our website wherever you have internet access.
+              Simply order your subscription directly on our website whenever you have internet access.
             </Typography>
           </Box>
         </Container>
