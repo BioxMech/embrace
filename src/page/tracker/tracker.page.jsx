@@ -5,14 +5,11 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import { db } from '../../util/firebase';
-import { updateDoc, getDoc, doc } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import './tracker.styles.scss';
 import { AuthContext } from '../../context/auth';
 import TrackPeriod from '../../component/tracker/trackerPeriod.component';
 import PersonalPeriodTracker from '../../component/tracker/personalPeriodTracker.component';
-import PersonalBloodFlow from '../personalBloodFlow/personalBloodFlow.page';
-// import PersonalCalendar from '../../component/tracker/personalCalendar.component';
-// import { userData } from '../../util/common';
 
 function Tracker() {
 
@@ -22,7 +19,6 @@ function Tracker() {
   const [bloodLevel, setBloodLevel] = useState(null);
   const [mood, setMood] = useState(null);
   const [pain, setPain] = useState(null);
-  const [date, setDate] = useState(null);
   
   // console.log(user)
   async function checkDB() {

@@ -11,8 +11,8 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Hidden from '@mui/material/Hidden';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 import './trackerPeriod.styles.scss';
 import TrackResults from './trackResults.component';
@@ -201,13 +201,13 @@ function TrackPeriod() {
               </Box>
               <Box mt={3}>
                 <Hidden smUp>
-                  <Button variant="contained" endIcon={ <ChevronRightIcon /> } className="track-button" onClick={generatePDF}>
-                    Print current month
+                  <Button variant="contained" startIcon={ <FileDownloadIcon /> } className="track-button" onClick={generatePDF}>
+                    Download current month
                   </Button>
                 </Hidden>
                 <Hidden smDown>
-                  <Button variant="contained" endIcon={ <ChevronRightIcon /> } className="track-button" onClick={generatePDF}>
-                    Print your calendar
+                  <Button variant="contained" startIcon={ <FileDownloadIcon /> } className="track-button" onClick={generatePDF}>
+                    Download your calendar
                   </Button>
                 </Hidden>
               </Box>

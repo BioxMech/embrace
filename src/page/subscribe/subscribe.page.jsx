@@ -11,7 +11,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import StarIcon from '@mui/icons-material/StarBorder';
 import GlobalStyles from '@mui/material/GlobalStyles';
-import { createTheme } from '@mui/material/styles';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 

@@ -61,8 +61,6 @@ function PersonalCalendar(props) {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      // console.log("Document data:", docSnap.data());
-      // setTrackerData(docSnap.data())
       const data = docSnap.data();
       setBloodLevel(data.bloodLevel);
       const first = moment(new Date(data.date.seconds * 1000));
@@ -106,11 +104,6 @@ function PersonalCalendar(props) {
     })
   }
 
-  const [startDate, setStartDate] = useState(moment());
-  // const [endDate, setEndDate] = useState(startPeriodDate.clone().add(daysLast, "days"));
-  const [focusedInput, setFocusedInput] = useState("START_DATE");
-  const [initialMonth, setInitialMonth] = useState(moment());
-
   const check = (momentDate) => {
     return (momentDate.isBetween(firstDate.clone().subtract(1, "days"), firstDate.clone().add(4, "days"))
     || momentDate.isBetween(firstDate.clone().add(28, "days").subtract(1, "days"), firstDate.clone().add(28, "days")))
@@ -137,123 +130,115 @@ function PersonalCalendar(props) {
           </Stack>
         </Container>
           <DayPickerRangeController
-          // startDate={startDate} // momentPropTypes.momentObj or null,
-          // endDate={endDate} // momentPropTypes.momentObj or null,
-          // onDatesChange={({ sd, ed }) => {setStartDate(sd); }} // PropTypes.func.isRequired,
-          // focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-          // onFocusChange={fi => console.log} // PropTypes.func.isRequired,
-          // initialVisibleMonth={() => moment().add(2, "M")} // PropTypes.func or null,
-          // startDate={startDate}
-          // endDate={endDate}
-          // initialVisibleMonth={() => initialMonth}
-          // focused={true}
-          // minDate={moment().subtract(1, "M")}
-          minDate={moment()}
-          maxDate={moment().add(1, "M")}
-          noBoarder
-          orientation="vertical"
-          withFullScreenPortal 
-          autoFocus 
-          navPrev={() => false}
-          navNext={() => false}
-          renderDayContents={(momentDate) => 
-            <Grid container style={{ margin: 0, padding:0}}>
-              <Grid item xs={12}>
-                { momentDate.date() } 
-              </Grid>
-              <Grid item xs={12} style={{margin: 0,  marginTop: '5px',padding:0 }}>
-              <Stack direction="row" spacing={1} justifyContent="center" alignItems="center">
-              {
-                check(momentDate) ?
-                  bloodLevel === null || pain === null || mood === null ?
-                    null 
-                  :
-                  <>
-                    {
-                      bloodLevel === "low" || checkDate(momentDate, "low") ?
+            minDate={moment()}
+            maxDate={moment().add(1, "M")}
+            noBoarder
+            orientation="vertical"
+            withFullScreenPortal 
+            autoFocus 
+            navPrev={() => false}
+            navNext={() => false}
+            renderDayContents={(momentDate) => 
+              <Grid container style={{ margin: 0, padding:0}}>
+                <Grid item xs={12}>
+                  { momentDate.date() } 
+                </Grid>
+                <Grid item xs={12} style={{margin: 0,  marginTop: '5px',padding:0 }}>
+                <Stack direction="row" spacing={1} justifyContent="center" alignItems="center">
+                {
+                  check(momentDate) ?
+                    bloodLevel === null || pain === null || mood === null ?
+                      null 
+                    :
+                    <>
+                      {
+                        bloodLevel === "low" || checkDate(momentDate, "low") ?
+                          <Box>
+                            <img src={Blood} alt="s" style={{ width: '8px' }} /> 
+                          </Box>
+                        :
+                        bloodLevel === "medium" || checkDate(momentDate, "medium") ?
+                          <Box>
+                            <img src={Blood} alt="s" style={{ width: '10px' }} />
+                          </Box>
+                        :
                         <Box>
-                          <img src={Blood} alt="s" style={{ width: '8px' }} /> 
-                        </Box>
-                      :
-                      bloodLevel === "medium" || checkDate(momentDate, "medium") ?
-                        <Box>
+                          <img src={Blood} alt="s" style={{ width: '10px' }} /> 
                           <img src={Blood} alt="s" style={{ width: '10px' }} />
                         </Box>
-                      :
-                      <Box>
-                        <img src={Blood} alt="s" style={{ width: '10px' }} /> 
-                        <img src={Blood} alt="s" style={{ width: '10px' }} />
-                      </Box>
-                    }
-                  </>
-                : null
-              }
-              {
-                momentDate.date() === firstDate.date() ?
-                    
-                      mood === "happy" ?
-                      <Box>
-                        <img src={Happy} alt="s" style={{ width: '20px' }} />
-                      </Box>
-                      :
-                      mood === "sad" ?
-                      <Box>
-                        <img src={Sad} alt="s" style={{ width: '20px' }} />
-                      </Box>
-                      :
-                      mood === "cry" ?
-                      <Box>
-                        <img src={Cry} alt="s" style={{ width: '20px' }} />
-                      </Box>
-                      : 
-                      mood === "moody" ?
-                      <Box>
-                        <img src={Moody} alt="s" style={{ width: '20px' }} />
-                      </Box>
+                      }
+                    </>
+                  : null
+                }
+                {
+                  momentDate.date() === firstDate.date() ?
+                      
+                        mood === "happy" ?
+                        <Box>
+                          <img src={Happy} alt="s" style={{ width: '20px' }} />
+                        </Box>
+                        :
+                        mood === "sad" ?
+                        <Box>
+                          <img src={Sad} alt="s" style={{ width: '20px' }} />
+                        </Box>
+                        :
+                        mood === "cry" ?
+                        <Box>
+                          <img src={Cry} alt="s" style={{ width: '20px' }} />
+                        </Box>
+                        : 
+                        mood === "moody" ?
+                        <Box>
+                          <img src={Moody} alt="s" style={{ width: '20px' }} />
+                        </Box>
+                        : null
+                    :null
+                }
+                { momentDate.date() === firstDate.date() ?
+                      
+                        pain === "headache" ?
+                        <Box>
+                          <img src={Headache} alt="s" style={{ width: '20px' }} />
+                        </Box>
+                        :
+                        pain === "cramps" ?
+                        <Box>
+                          <img src={Cramps} alt="s" style={{ width: '20px' }} />
+                        </Box>
+                        :
+                        pain === "backPain" ?
+                        <Box>
+                          <img src={BackPain} alt="s" style={{ width: '20px' }} />
+                        </Box>
+                        : null
+                      
                       : null
-                  :null
-              }
-              { momentDate.date() === firstDate.date() ?
-                    
-                      pain === "headache" ?
-                      <Box>
-                        <img src={Headache} alt="s" style={{ width: '20px' }} />
-                      </Box>
-                      :
-                      pain === "cramps" ?
-                      <Box>
-                        <img src={Cramps} alt="s" style={{ width: '20px' }} />
-                      </Box>
-                      :
-                      pain === "backPain" ?
-                      <Box>
-                        <img src={BackPain} alt="s" style={{ width: '20px' }} />
-                      </Box>
-                      : null
-                    
-                    : null
-              }
-              </Stack>
+                }
+                </Stack>
+                </Grid>
+                
               </Grid>
-              
-            </Grid>
-          }
-          // isDayHighlighted={ (momentDate) => (checkHighlight(momentDate) ? true : false) }
-          renderWeekHeaderElement={(props) => <span>
-            { props === "Su" ? "Sun" : ""}
-            { props === "Mo" ? "Mon" : ""}
-            { props === "Tu" ? "Tue" : ""}
-            { props === "We" ? "Wed" : ""}
-            { props === "Th" ? "Thu" : ""}
-            { props === "Fr" ? "Fri" : ""}
-            { props === "Sa" ? "Sat" : ""}
-          </span>}
-        />
+            }
+            // isDayHighlighted={ (momentDate) => (checkHighlight(momentDate) ? true : false) }
+            renderWeekHeaderElement={
+              (props) => 
+              <span>
+                { props === "Su" ? "Sun" : ""}
+                { props === "Mo" ? "Mon" : ""}
+                { props === "Tu" ? "Tue" : ""}
+                { props === "We" ? "Wed" : ""}
+                { props === "Th" ? "Thu" : ""}
+                { props === "Fr" ? "Fri" : ""}
+                { props === "Sa" ? "Sat" : ""}
+              </span>
+            }
+          />
         
       </Paper>
       <Box mt={3} style={{ textAlign: 'center' }}>
-          <Button variant="contained" endIcon={ <FileDownloadIcon /> } className="track-button" onClick={generatePDF}>
-            Print your calendar
+          <Button variant="contained" startIcon={ <FileDownloadIcon /> } className="track-button" onClick={generatePDF}>
+            Download your calendar
           </Button>
         </Box>
     </Box>

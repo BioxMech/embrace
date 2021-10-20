@@ -26,7 +26,6 @@ import BackPain from '../../asset/images/backPain.jpg';
 import { db } from '../../util/firebase';
 import { updateDoc, doc } from "firebase/firestore";
 import { AuthContext } from '../../context/auth';
-import { CategoryOutlined } from '@mui/icons-material';
 import './personalMood.styles.scss';
 
 function PersonalMood(props) {

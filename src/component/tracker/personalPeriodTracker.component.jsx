@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Hidden from '@mui/material/Hidden';
 import Grid from '@mui/material/Grid';
@@ -10,21 +9,15 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 
 import { AuthContext } from '../../context/auth';
 import Blood from '../../asset/images/blood.jpg';
-import SmileTitle from '../../asset/images/smile_title.jpg';
 import Happy from '../../asset/images/happy.jpg';
 import Sad from '../../asset/images/sad.jpg';
 import Cry from '../../asset/images/cry.jpg';
 import Moody from '../../asset/images/moody.jpg';
-import Exclamation from '../../asset/images/exclamation.png';
-import Popover from '@mui/material/Popover';
-
-import PainTitle from '../../asset/images/painTitle.jpg';
 import Headache from '../../asset/images/headache.jpg';
 import Cramps from '../../asset/images/cramps.jpg';
 import BackPain from '../../asset/images/backPain.jpg';
