@@ -15,7 +15,7 @@ function AnimationGreetings({ isCenter }) {
   return (
     <Container maxWidth="sm" >
       <Grid container>
-        <Grid item xs={12} md={6} sx={{ textAlign: isCenter ? 'center' : 'right' }}>
+        <Grid item xs={12} sm={6} sx={{ textAlign: isCenter ? 'center' : 'right' }}>
           <Box mr={1}>
             <Typography variant="h5">
               Our Mission:
@@ -23,7 +23,7 @@ function AnimationGreetings({ isCenter }) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} md={6} sx={{ textAlign: isCenter ? 'center' : 'left' }}>
+        <Grid item xs={12} sm={6} sx={{ textAlign: isCenter ? 'center' : 'left' }}>
           <Typography variant="h5">
             <Typewriter
               onInit={(typewriter) => {
