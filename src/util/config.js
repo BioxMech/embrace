@@ -1,7 +1,0 @@
-export const FIREBASE_API_KEY="AIzaSyAtQoZAHEAQh1IsZfKNFj3SD1LR3I-LfAM"
-export const FIREBASE_AUTH_DOMAIN="embrace-b75f7.firebaseapp.com"
-export const FIREBASE_PROJECT_ID="embrace-b75f7"
-export const FIREBASE_STORAGE_BUCKET="embrace-b75f7.appspot.com"
-export const FIREBASE_MESSAGING_SENDER_ID="380888511152"
-export const FIREBASE_APP_ID="1:380888511152:web:fe32fb4578841fc7c34175"
-export const FIREBASE_MEASUREMENT_ID="G-0J2BZNG283"
